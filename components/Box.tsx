@@ -31,7 +31,7 @@ const Box: React.FC<MeshProps> = (props) => {
       onPointerOut={(event) => setHover(false)}
     >
       <boxBufferGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial color={hovered ? "hotpink" : "orange"} />
+      <meshStandardMaterial color={hovered ? "steelblue" : "lightgreen"} />
     </mesh>
   );
 };
