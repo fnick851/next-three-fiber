@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-import { MeshProps, useFrame } from "react-three-fiber";
+import { useFrame } from "react-three-fiber";
 import type { Mesh } from "three";
 
-const Box: React.FC<MeshProps> = (props) => {
+export default function Box(props) {
   const mesh = useRef<Mesh>();
 
   const [hovered, setHover] = useState(false);
@@ -34,6 +34,4 @@ const Box: React.FC<MeshProps> = (props) => {
       <meshStandardMaterial color={hovered ? "steelblue" : "lightgreen"} />
     </mesh>
   );
-};
-
-export default Box;
+}

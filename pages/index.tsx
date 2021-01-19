@@ -1,11 +1,12 @@
 import Head from "next/head";
 import { Canvas } from "react-three-fiber";
 
+import Layout from "../components/Layout";
 import Box from "../components/Box";
 
 export default function Home() {
   return (
-    <>
+    <Layout>
       <Head>
         <title>Home</title>
       </Head>
@@ -16,6 +17,6 @@ export default function Home() {
         <Box position={[-1.2, 0, 0]} />
         <Box position={[1.2, 0, 0]} />
       </Canvas>
-    </>
+    </Layout>
   );
 }
