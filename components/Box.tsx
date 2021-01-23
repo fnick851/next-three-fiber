@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useFrame } from "react-three-fiber";
+import { useFrame, MeshProps } from "react-three-fiber";
 import type { Mesh } from "three";
 
-export default function Box(props) {
+export default function Box(props: MeshProps) {
   const mesh = useRef<Mesh>();
 
   const [hovered, setHover] = useState(false);
@@ -25,10 +25,10 @@ export default function Box(props) {
     <mesh
       {...props}
       ref={mesh}
-      scale={active ? [1.5, 1.5, 1.5] : [1, 1, 1]}
-      onClick={(event) => setActive(!active)}
-      onPointerOver={(event) => setHover(true)}
-      onPointerOut={(event) => setHover(false)}
+      scale={active ? [1, 1, 1] : [0.5, 0.5, 0.5]}
+      onClick={() => setActive(!active)}
+      onPointerOver={() => setHover(true)}
+      onPointerOut={() => setHover(false)}
     >
       <boxBufferGeometry args={[1, 1, 1]} />
       <meshStandardMaterial color={hovered ? "steelblue" : "lightgreen"} />
