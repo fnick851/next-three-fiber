@@ -4,7 +4,23 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 
 export default function Layout({ children }) {
+  const links = [
+    { link: "/", name: "Home" },
+    { link: "/basic", name: "Basic" },
+  ];
+
   const router = useRouter();
+  const menuItems = links.map((d, i) => (
+    <Link href={d.link} key={i}>
+      <a
+        className={`group flex items-center px-3 py-2 text-sm font-medium text-gray-600 rounded-md hover:text-gray-900 hover:bg-gray-50 ${
+          router.pathname == d.link ? "text-gray-900 bg-gray-50" : null
+        }`}
+      >
+        <span className="truncate">{d.name}</span>
+      </a>
+    </Link>
+  ));
 
   return (
     <>
@@ -41,17 +57,7 @@ export default function Layout({ children }) {
                     role="group"
                     aria-labelledby="projects-headline"
                   >
-                    <Link href="/">
-                      <a
-                        className={`group flex items-center px-3 py-2 text-sm font-medium text-gray-600 rounded-md hover:text-gray-900 hover:bg-gray-50 ${
-                          router.pathname == "/"
-                            ? "text-gray-900 bg-gray-50"
-                            : null
-                        }`}
-                      >
-                        <span className="truncate">Home</span>
-                      </a>
-                    </Link>
+                    {menuItems}
                   </div>
                 </div>
               </nav>
@@ -59,10 +65,6 @@ export default function Layout({ children }) {
           </div>
         </div>
         <div className="flex-grow flex-col flex">
-          <h1 className="text-center my-5">
-            Rendering with <code>react-three-fiber</code>, <code>next.js</code>,
-            and <code>tailwindcss</code> because it feels good.
-          </h1>
           <div className="flex-grow">{children}</div>
         </div>
       </div>

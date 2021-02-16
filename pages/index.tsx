@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { Canvas } from "react-three-fiber";
 import Layout from "../components/Layout";
-import HomeScene from "../components/HomeScene";
+import Box from "../components/Home/Box";
 
 export default function Home() {
   return (
@@ -11,7 +11,12 @@ export default function Home() {
       </Head>
 
       <Canvas className="bg-black">
-        <HomeScene />
+        <ambientLight args={["white", 0.1]} />
+        <pointLight position={[10, 10, 10]} />
+        <spotLight position={[-1.5, -1.5, -1]} color="red" />
+        <axesHelper args={[2]} />
+        <Box position={[-1, 0, 0]} />
+        <Box position={[1, 0, 0]} />
       </Canvas>
     </Layout>
   );
