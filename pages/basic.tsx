@@ -1,6 +1,5 @@
 import Head from "next/head";
 import { Canvas } from "react-three-fiber";
-import { BoxGeometry } from "three";
 import Layout from "../components/Layout";
 
 export default function Basic() {
