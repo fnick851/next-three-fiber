@@ -7,6 +7,7 @@ export default function Layout({ children }) {
   const links = [
     { link: "/", name: "Home" },
     { link: "/basic", name: "Basic" },
+    { link: "/transform", name: "Transform" },
   ];
 
   const router = useRouter();

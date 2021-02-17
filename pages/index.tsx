@@ -14,7 +14,7 @@ export default function Home() {
         <ambientLight args={["white", 0.1]} />
         <pointLight position={[10, 10, 10]} />
         <spotLight position={[-1.5, -1.5, -1]} color="red" />
-        <axesHelper args={[2]} />
+        <axesHelper args={[3]} />
         <Box position={[-1, 0, 0]} />
         <Box position={[1, 0, 0]} />
       </Canvas>
