@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { Canvas } from "react-three-fiber";
 import Layout from "../components/Layout";
-import Box from "../components/Home/Box";
+import Box from "../components/home/Box";
 
 export default function Home() {
   return (

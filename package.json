@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "autoprefixer": "^10.2.3",
+    "drei": "^2.2.21",
     "gsap": "^3.6.0",
     "next": "^10.0.5",
     "postcss": "^8.2.4",
@@ -18,10 +19,10 @@
     "react-dom": "17.0.1",
     "react-three-fiber": "^5.3.14",
     "tailwindcss": "^2.0.2",
-    "three": "^0.125.2"
+    "three": "^0.124.0"
   },
   "devDependencies": {
-    "@types/node": "^14.14.22",
+    "@types/node": "^14.14.29",
     "@types/react": "^17.0.0",
     "typescript": "^4.1.3"
   }
