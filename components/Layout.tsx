@@ -8,6 +8,7 @@ export default function Layout({ children }) {
     { link: "/", name: "Home" },
     { link: "/basic", name: "Basic" },
     { link: "/transform", name: "Transform" },
+    { link: "/animation", name: "Animation" },
   ];
 
   const router = useRouter();
