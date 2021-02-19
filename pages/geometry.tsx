@@ -8,13 +8,20 @@ const Control = dynamic(() => import("../components/OrbitControls"), {
   ssr: false,
 });
 
-const count = 50 * 3 * 3;
-const positionsArray = new Float32Array(count);
-for (let i = 0; i < count; i++) positionsArray[i] = (Math.random() - 0.5) * 4;
+const triangleCount = 50;
+const verticePerTriangle = 3;
+const floatPerVertice = 3;
+const floatCount = floatPerVertice * verticePerTriangle * triangleCount;
+const positionsArray = new Float32Array(floatCount);
+for (let i = 0; i < floatCount; i++)
+  positionsArray[i] = (Math.random() - 0.5) * 4;
 
 const Scene = () => {
   const ref = useUpdate((geometry: BufferGeometry) => {
-    geometry.setAttribute("position", new BufferAttribute(positionsArray, 3));
+    geometry.setAttribute(
+      "position",
+      new BufferAttribute(positionsArray, floatPerVertice)
+    );
   }, []);
 
   return (
