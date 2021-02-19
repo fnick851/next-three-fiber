@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 import { Canvas } from "react-three-fiber";
 import Layout from "../components/Layout";
 
-const Control = dynamic(() => import("../components/camera/Control"), {
+const Control = dynamic(() => import("../components/OrbitControls"), {
   ssr: false,
 });
 
