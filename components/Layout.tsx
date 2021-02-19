@@ -11,6 +11,7 @@ export default function Layout({ children }) {
     { link: "/animation", name: "Animation" },
     { link: "/camera", name: "Camera" },
     { link: "/full-screen", name: "Full Screen" },
+    { link: "/geometry", name: "Geometry" },
   ];
 
   const router = useRouter();

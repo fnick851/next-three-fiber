@@ -23,7 +23,7 @@ export default function FullScreen() {
   return (
     <Layout>
       <Head>
-        <title>Transform</title>
+        <title>Full Screen</title>
       </Head>
 
       <div className="h-full" ref={canvas}>

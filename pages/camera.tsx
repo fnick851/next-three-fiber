@@ -11,7 +11,7 @@ export default function Camera() {
   return (
     <Layout>
       <Head>
-        <title>Transform</title>
+        <title>Camera</title>
       </Head>
 
       <Canvas className="bg-black">

@@ -21,7 +21,7 @@ export default function Animation() {
   return (
     <Layout>
       <Head>
-        <title>Transform</title>
+        <title>Animation</title>
       </Head>
 
       <Canvas className="bg-black">
