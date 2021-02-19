@@ -26,7 +26,7 @@ export default function FullScreen() {
         <title>Transform</title>
       </Head>
 
-      <div className="h-screen" ref={canvas}>
+      <div className="h-full" ref={canvas}>
         <Canvas className="bg-black">
           <mesh>
             <boxGeometry args={[1, 1, 1, 5, 5, 5]} />

@@ -69,7 +69,7 @@ export default function Layout({ children }) {
           </div>
         </div>
         <div className="flex-grow flex-col flex">
-          <div className="flex-grow">{children}</div>
+          <div className="flex-grow h-screen">{children}</div>
         </div>
       </div>
     </>
