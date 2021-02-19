@@ -34,7 +34,7 @@ export default function Layout({ children }) {
       </Head>
 
       <div className="antialiased font-sans flex h-screen">
-        <div className="flex flex-col w-64">
+        <div className="flex flex-col w-64 max-h-screen">
           <div className="flex flex-col flex-grow border-r border-gray-200 pt-5 pb-4 bg-white overflow-y-auto">
             <div className="flex items-center flex-shrink-0 px-4">
               <a href="/">
