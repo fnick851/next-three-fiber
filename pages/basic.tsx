@@ -1,6 +1,6 @@
-import Head from "next/head";
-import { Canvas } from "react-three-fiber";
-import Layout from "../components/Layout";
+import Head from "next/head"
+import { Canvas } from "react-three-fiber"
+import Layout from "../components/Layout"
 
 export default function Basic() {
   return (
@@ -16,5 +16,5 @@ export default function Basic() {
         </mesh>
       </Canvas>
     </Layout>
-  );
+  )
 }

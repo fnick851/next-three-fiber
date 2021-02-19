@@ -1,24 +1,24 @@
-import Head from "next/head";
-import dynamic from "next/dynamic";
-import { Canvas } from "react-three-fiber";
-import Layout from "../components/Layout";
-import { useRef } from "react";
-import useFullScreen from "../hooks/useFullScreen";
+import Head from "next/head"
+import dynamic from "next/dynamic"
+import { Canvas } from "react-three-fiber"
+import Layout from "../components/Layout"
+import { useRef } from "react"
+import useFullScreen from "../hooks/useFullScreen"
 
 declare global {
   interface Document {
-    webkitFullscreenElement: any;
-    webkitExitFullscreen: any;
+    webkitFullscreenElement: any
+    webkitExitFullscreen: any
   }
 }
 
 const Control = dynamic(() => import("../components/OrbitControls"), {
   ssr: false,
-});
+})
 
 export default function FullScreen() {
-  const canvas = useRef(null);
-  useFullScreen(canvas);
+  const canvas = useRef(null)
+  useFullScreen(canvas)
 
   return (
     <Layout>
@@ -36,5 +36,5 @@ export default function FullScreen() {
         </Canvas>
       </div>
     </Layout>
-  );
+  )
 }

@@ -1,4 +1,4 @@
-const defaultTheme = require("tailwindcss/defaultTheme");
+const defaultTheme = require("tailwindcss/defaultTheme")
 
 module.exports = {
   purge: ["./pages/**/*.tsx", "./components/**/*.tsx"],
@@ -14,4 +14,4 @@ module.exports = {
     extend: {},
   },
   plugins: [],
-};
+}

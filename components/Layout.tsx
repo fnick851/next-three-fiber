@@ -1,7 +1,7 @@
-import Head from "next/head";
-import Link from "next/link";
-import Image from "next/image";
-import { useRouter } from "next/router";
+import Head from "next/head"
+import Link from "next/link"
+import Image from "next/image"
+import { useRouter } from "next/router"
 
 export default function Layout({ children }) {
   const links = [
@@ -12,9 +12,9 @@ export default function Layout({ children }) {
     { link: "/camera", name: "Camera" },
     { link: "/full-screen", name: "Full Screen" },
     { link: "/geometry", name: "Geometry" },
-  ];
+  ]
 
-  const router = useRouter();
+  const router = useRouter()
   const menuItems = links.map((d, i) => (
     <Link href={d.link} key={i}>
       <a
@@ -25,7 +25,7 @@ export default function Layout({ children }) {
         <span className="truncate">{d.name}</span>
       </a>
     </Link>
-  ));
+  ))
 
   return (
     <>
@@ -74,5 +74,5 @@ export default function Layout({ children }) {
         </div>
       </div>
     </>
-  );
+  )
 }

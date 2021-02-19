@@ -1,5 +1,5 @@
-import { OrbitControls } from "drei";
+import { OrbitControls } from "drei"
 
 export default function Scene() {
-  return <OrbitControls />;
+  return <OrbitControls />
 }

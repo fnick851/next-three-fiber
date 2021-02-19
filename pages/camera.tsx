@@ -1,11 +1,11 @@
-import Head from "next/head";
-import dynamic from "next/dynamic";
-import { Canvas } from "react-three-fiber";
-import Layout from "../components/Layout";
+import Head from "next/head"
+import dynamic from "next/dynamic"
+import { Canvas } from "react-three-fiber"
+import Layout from "../components/Layout"
 
 const Control = dynamic(() => import("../components/OrbitControls"), {
   ssr: false,
-});
+})
 
 export default function Camera() {
   return (
@@ -22,5 +22,5 @@ export default function Camera() {
         <Control />
       </Canvas>
     </Layout>
-  );
+  )
 }

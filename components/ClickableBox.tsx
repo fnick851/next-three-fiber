@@ -1,25 +1,25 @@
-import React, { useEffect, useRef, useState } from "react";
-import { useFrame, MeshProps } from "react-three-fiber";
-import type { Mesh } from "three";
+import React, { useEffect, useRef, useState } from "react"
+import { useFrame, MeshProps } from "react-three-fiber"
+import type { Mesh } from "three"
 
 export default function Box(props: MeshProps) {
-  const mesh = useRef<Mesh>();
+  const mesh = useRef<Mesh>()
 
-  const [hovered, setHover] = useState(false);
-  const [active, setActive] = useState(false);
+  const [hovered, setHover] = useState(false)
+  const [active, setActive] = useState(false)
 
   useEffect(() => {
-    const body = document.body;
+    const body = document.body
     if (hovered) {
-      body.style.cursor = "pointer";
+      body.style.cursor = "pointer"
     } else {
-      body.style.cursor = "default";
+      body.style.cursor = "default"
     }
-  });
+  })
 
   useFrame(() => {
-    if (mesh.current) mesh.current.rotation.x = mesh.current.rotation.y += 0.01;
-  });
+    if (mesh.current) mesh.current.rotation.x = mesh.current.rotation.y += 0.01
+  })
 
   return (
     <mesh
@@ -33,5 +33,5 @@ export default function Box(props: MeshProps) {
       <boxBufferGeometry args={[1, 1, 1]} />
       <meshStandardMaterial color={hovered ? "steelblue" : "lightgreen"} />
     </mesh>
-  );
+  )
 }

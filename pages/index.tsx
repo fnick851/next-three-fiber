@@ -1,7 +1,7 @@
-import Head from "next/head";
-import { Canvas } from "react-three-fiber";
-import Layout from "../components/Layout";
-import Box from "../components/ClickableBox";
+import Head from "next/head"
+import { Canvas } from "react-three-fiber"
+import Layout from "../components/Layout"
+import Box from "../components/ClickableBox"
 
 export default function Home() {
   return (
@@ -19,5 +19,5 @@ export default function Home() {
         <Box position={[1, 0, 0]} />
       </Canvas>
     </Layout>
-  );
+  )
 }
