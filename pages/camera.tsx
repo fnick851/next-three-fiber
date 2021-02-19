@@ -3,7 +3,7 @@ import dynamic from "next/dynamic"
 import { Canvas } from "react-three-fiber"
 import Layout from "../components/Layout"
 
-const Control = dynamic(() => import("../components/OrbitControls"), {
+const OrbitControls = dynamic(() => import("../components/OrbitControls"), {
   ssr: false,
 })
 
@@ -19,7 +19,7 @@ export default function Camera() {
           <boxGeometry args={[1, 1, 1, 5, 5, 5]} />
           <meshBasicMaterial color={0xff0000} />
         </mesh>
-        <Control />
+        <OrbitControls />
       </Canvas>
     </Layout>
   )

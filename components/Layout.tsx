@@ -12,6 +12,7 @@ export default function Layout({ children }) {
     { link: "/camera", name: "Camera" },
     { link: "/full-screen", name: "Full Screen" },
     { link: "/geometry", name: "Geometry" },
+    { link: "/debug-ui", name: "Debug UI" },
   ]
 
   const router = useRouter()

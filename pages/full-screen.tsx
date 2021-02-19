@@ -12,7 +12,7 @@ declare global {
   }
 }
 
-const Control = dynamic(() => import("../components/OrbitControls"), {
+const OrbitControls = dynamic(() => import("../components/OrbitControls"), {
   ssr: false,
 })
 
@@ -32,7 +32,7 @@ export default function FullScreen() {
             <boxGeometry args={[1, 1, 1, 5, 5, 5]} />
             <meshBasicMaterial color={0xff0000} />
           </mesh>
-          <Control />
+          <OrbitControls />
         </Canvas>
       </div>
     </Layout>

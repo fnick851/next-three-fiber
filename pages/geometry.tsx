@@ -4,7 +4,7 @@ import { Canvas, useUpdate } from "react-three-fiber"
 import Layout from "../components/Layout"
 import { BufferAttribute, BufferGeometry } from "three"
 
-const Control = dynamic(() => import("../components/OrbitControls"), {
+const OrbitControls = dynamic(() => import("../components/OrbitControls"), {
   ssr: false,
 })
 
@@ -30,7 +30,7 @@ const Scene = () => {
         <bufferGeometry ref={ref} />
         <meshBasicMaterial color={0xff0000} wireframe={true} />
       </mesh>
-      <Control />
+      <OrbitControls />
     </>
   )
 }
