@@ -4,7 +4,7 @@ import { Canvas, MeshProps, useFrame } from "react-three-fiber"
 import { Mesh } from "three"
 import Layout from "../components/Layout"
 
-function Box(props: MeshProps) {
+function ClickableBox(props: MeshProps) {
   const mesh = useRef<Mesh>()
 
   const [hovered, setHover] = useState(false)
@@ -50,8 +50,8 @@ export default function Home() {
         <pointLight position={[10, 10, 10]} />
         <spotLight position={[-1.5, -1.5, -1]} color="red" />
         <axesHelper args={[3]} />
-        <Box position={[-1, 0, 0]} />
-        <Box position={[1, 0, 0]} />
+        <ClickableBox position={[-1, 0, 0]} />
+        <ClickableBox position={[1, 0, 0]} />
       </Canvas>
     </Layout>
   )
