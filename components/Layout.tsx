@@ -13,6 +13,7 @@ export default function Layout({ children }) {
     { link: "/full-screen", name: "Full Screen" },
     { link: "/geometry", name: "Geometry" },
     { link: "/debug-ui", name: "Debug UI" },
+    { link: "/textures", name: "Textures" },
   ]
 
   const router = useRouter()
