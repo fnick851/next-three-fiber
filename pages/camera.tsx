@@ -7,6 +7,8 @@ const OrbitControls = dynamic(() => import("../components/OrbitControls"), {
   ssr: false,
 })
 
+const Texts = dynamic(() => import("../components/Texts"), { ssr: false })
+
 export default function Camera() {
   return (
     <Layout>
@@ -20,6 +22,9 @@ export default function Camera() {
           <meshBasicMaterial color={0xff0000} />
         </mesh>
         <OrbitControls />
+        <Texts position={[-1, 1, 0]}>
+          <p>Drag it.</p>
+        </Texts>
       </Canvas>
     </Layout>
   )

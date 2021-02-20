@@ -16,6 +16,8 @@ const OrbitControls = dynamic(() => import("../components/OrbitControls"), {
   ssr: false,
 })
 
+const Texts = dynamic(() => import("../components/Texts"), { ssr: false })
+
 export default function FullScreen() {
   const canvas = useRef(null)
   useFullScreen(canvas)
@@ -32,6 +34,9 @@ export default function FullScreen() {
             <boxGeometry args={[1, 1, 1, 5, 5, 5]} />
             <meshBasicMaterial color={0xff0000} />
           </mesh>
+          <Texts position={[-1, 1, 0]}>
+            <p>Double-click or drag on the scene.</p>
+          </Texts>
           <OrbitControls />
         </Canvas>
       </div>

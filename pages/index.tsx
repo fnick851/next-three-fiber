@@ -1,3 +1,4 @@
+import dynamic from "next/dynamic"
 import Head from "next/head"
 import { useEffect, useRef, useState } from "react"
 import { Canvas, MeshProps, useFrame } from "react-three-fiber"
@@ -38,6 +39,8 @@ function ClickableBox(props: MeshProps) {
   )
 }
 
+const Texts = dynamic(() => import("../components/Texts"), { ssr: false })
+
 export default function Home() {
   return (
     <Layout>
@@ -46,12 +49,17 @@ export default function Home() {
       </Head>
 
       <Canvas className="bg-black">
+        <Texts position={[-2, 3, 0]}>
+          <p>Hi,</p>
+          <p>objects on the site might be interactive,</p>
+          <p>please try clicking and dragging.</p>
+        </Texts>
+        <ClickableBox position={[-1, 0, 0]} />
+        <ClickableBox position={[1, 0, 0]} />
+        <axesHelper args={[3]} />
         <ambientLight args={["white", 0.1]} />
         <pointLight position={[10, 10, 10]} />
         <spotLight position={[-1.5, -1.5, -1]} color="red" />
-        <axesHelper args={[3]} />
-        <ClickableBox position={[-1, 0, 0]} />
-        <ClickableBox position={[1, 0, 0]} />
       </Canvas>
     </Layout>
   )
