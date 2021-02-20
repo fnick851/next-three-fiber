@@ -6,14 +6,15 @@ import { useRouter } from "next/router"
 export default function Layout({ children }) {
   const links = [
     { link: "/", name: "Home" },
-    { link: "/basic", name: "Basic" },
-    { link: "/transform", name: "Transform" },
-    { link: "/animation", name: "Animation" },
-    { link: "/camera", name: "Camera" },
-    { link: "/full-screen", name: "Full Screen" },
-    { link: "/geometry", name: "Geometry" },
-    { link: "/debug-ui", name: "Debug UI" },
+    { link: "/materials", name: "Materials" },
     { link: "/textures", name: "Textures" },
+    { link: "/debug-ui", name: "Debug UI" },
+    { link: "/geometry", name: "Geometry" },
+    { link: "/full-screen", name: "Full Screen" },
+    { link: "/camera", name: "Camera" },
+    { link: "/animation", name: "Animation" },
+    { link: "/transform", name: "Transform" },
+    { link: "/basic", name: "Basic" },
   ]
 
   const router = useRouter()

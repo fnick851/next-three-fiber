@@ -2,7 +2,7 @@ import Head from "next/head"
 import dynamic from "next/dynamic"
 import { Canvas, useLoader } from "react-three-fiber"
 import Layout from "../components/Layout"
-import { NearestFilter, Texture, TextureLoader } from "three"
+import { NearestFilter, TextureLoader } from "three"
 import { Suspense } from "react"
 
 const OrbitControls = dynamic(() => import("../components/OrbitControls"), {
