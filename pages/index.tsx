@@ -41,6 +41,10 @@ function ClickableBox(props: MeshProps) {
 
 const Texts = dynamic(() => import("../components/Texts"), { ssr: false })
 
+const OrbitControls = dynamic(() => import("../components/OrbitControls"), {
+  ssr: false,
+})
+
 export default function Home() {
   return (
     <Layout>
@@ -50,9 +54,9 @@ export default function Home() {
 
       <Canvas className="bg-black">
         <Texts position={[-2, 3, 0]}>
-          <p>Hi,</p>
-          <p>objects on the site might be interactive,</p>
-          <p>please try clicking and dragging.</p>
+          <p>welcome.</p>
+          <p>drag and scroll to navigate. </p>
+          <p>sometimes it is clickable too.</p>
         </Texts>
         <ClickableBox position={[-1, 0, 0]} />
         <ClickableBox position={[1, 0, 0]} />
@@ -60,6 +64,7 @@ export default function Home() {
         <ambientLight args={["white", 0.1]} />
         <pointLight position={[10, 10, 10]} />
         <spotLight position={[-1.5, -1.5, -1]} color="red" />
+        <OrbitControls />
       </Canvas>
     </Layout>
   )

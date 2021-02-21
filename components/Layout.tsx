@@ -12,7 +12,6 @@ export default function Layout({ children }) {
     { link: "/debug-ui", name: "Debug UI" },
     { link: "/geometry", name: "Geometry" },
     { link: "/full-screen", name: "Full Screen" },
-    { link: "/camera", name: "Camera" },
     { link: "/animation", name: "Animation" },
     { link: "/transform", name: "Transform" },
     { link: "/basic", name: "Basic" },

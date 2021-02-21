@@ -1,8 +1,13 @@
+import dynamic from "next/dynamic"
 import Head from "next/head"
 import { useMemo } from "react"
 import { Canvas } from "react-three-fiber"
 import { BoxBufferGeometry, MeshBasicMaterial } from "three"
 import Layout from "../components/Layout"
+
+const OrbitControls = dynamic(() => import("../components/OrbitControls"), {
+  ssr: false,
+})
 
 export default function Transform() {
   const boxPositions = [-1.5, 0, 1.5]
@@ -23,6 +28,7 @@ export default function Transform() {
         <group scale={[1, 2, 1]} rotation={[0, 0.2, 0]}>
           {boxMeshes}
         </group>
+        <OrbitControls />
       </Canvas>
     </Layout>
   )
