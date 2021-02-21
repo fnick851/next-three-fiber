@@ -4,6 +4,7 @@ import { Canvas, useLoader } from "react-three-fiber"
 import Layout from "../components/Layout"
 import { NearestFilter, TextureLoader } from "three"
 import { Suspense } from "react"
+import LoadingScene from "../components/LoadingScene"
 
 const OrbitControls = dynamic(() => import("../components/OrbitControls"), {
   ssr: false,
@@ -36,13 +37,6 @@ const Scene = () => {
     </>
   )
 }
-
-const LoadingScene = () => (
-  <mesh>
-    <boxGeometry />
-    <meshBasicMaterial />
-  </mesh>
-)
 
 export default function Textures() {
   return (

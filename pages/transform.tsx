@@ -7,7 +7,7 @@ import Layout from "../components/Layout"
 export default function Transform() {
   const boxPositions = [-1.5, 0, 1.5]
   const geo = useMemo(() => new BoxBufferGeometry(1, 1, 1), [])
-  const mat = useMemo(() => new MeshBasicMaterial({ color: 0xff0000 }), [])
+  const mat = useMemo(() => new MeshBasicMaterial({ color: 0x0d5dcb }), [])
   const boxMeshes = boxPositions.map((pos, i) => (
     <mesh geometry={geo} material={mat} position={[pos, 0, 0]} key={i} />
   ))

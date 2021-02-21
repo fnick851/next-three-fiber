@@ -6,6 +6,7 @@ import { useRouter } from "next/router"
 export default function Layout({ children }) {
   const links = [
     { link: "/", name: "Home" },
+    { link: "/3d-text", name: "3D Text" },
     { link: "/materials", name: "Materials" },
     { link: "/textures", name: "Textures" },
     { link: "/debug-ui", name: "Debug UI" },
