@@ -35,6 +35,7 @@ export default function FullScreen() {
             <meshBasicMaterial color={0xff0000} />
           </mesh>
           <Texts position={[-1, 1, 0]}>
+            <p>on desktop,</p>
             <p>double-click to go full screen.</p>
           </Texts>
           <OrbitControls />
