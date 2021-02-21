@@ -1,7 +1,6 @@
 import dynamic from "next/dynamic"
 import Head from "next/head"
 import { Suspense } from "react"
-import { Canvas } from "react-three-fiber"
 import Layout from "../components/Layout"
 import LoadingScene from "../components/LoadingScene"
 import { useEffect, useMemo, useRef } from "react"
@@ -12,12 +11,20 @@ import {
   TextureLoader,
   TorusGeometry,
 } from "three"
+import { Controls, useControl } from "react-three-gui"
 
 function ThreeDTextScene() {
-  const matCapTexture = useLoader(TextureLoader, "/textures/matcaps/8.png")
+  const matCapTextureFile = useControl("Texture", {
+    type: "select",
+    items: ["1", "2", "3", "4", "5", "6", "7", "8"],
+  })
+  const matCapTexture = useLoader(
+    TextureLoader,
+    `/textures/matcaps/${matCapTextureFile}.png`
+  )
   const material = useMemo(
     () => new MeshMatcapMaterial({ matcap: matCapTexture }),
-    []
+    [matCapTexture]
   )
   const donutGeometry = useMemo(() => new TorusGeometry(0.3, 0.2, 32, 64), [])
   const font = useLoader(FontLoader, "/fonts/helvetiker_regular.typeface.json")
@@ -87,12 +94,15 @@ export default function ThreeDText() {
         <title>3D Text</title>
       </Head>
 
-      <Canvas className="bg-black">
-        <Suspense fallback={<LoadingScene />}>
-          <ThreeDTextScene />
-          <OrbitControls />
-        </Suspense>
-      </Canvas>
+      <Controls.Provider>
+        <Controls.Canvas className="bg-black">
+          <Suspense fallback={<LoadingScene />}>
+            <ThreeDTextScene />
+            <OrbitControls />
+          </Suspense>
+        </Controls.Canvas>
+        <Controls title="Parameter Control" anchor="bottom_left" />
+      </Controls.Provider>
     </Layout>
   )
 }
