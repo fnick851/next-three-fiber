@@ -68,7 +68,10 @@ function Github2020Scene() {
         color={spot_light_color}
         intensity={spot_light_intensity}
       />
-      <OrbitControls />
+      {
+        //@ts-ignore
+        <OrbitControls />
+      }
     </>
   )
 }

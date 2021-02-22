@@ -49,7 +49,10 @@ function Scene() {
           wireframe={wireframe}
         />
       </mesh>
-      <OrbitControls />
+      {
+        //@ts-ignore
+        <OrbitControls />
+      }
     </>
   )
 }

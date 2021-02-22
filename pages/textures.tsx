@@ -29,7 +29,10 @@ function Scene() {
           <meshBasicMaterial map={texture} />
         </mesh>
       ))}
-      <OrbitControls />
+      {
+        //@ts-ignore
+        <OrbitControls />
+      }
     </>
   )
 }

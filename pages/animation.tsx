@@ -31,7 +31,10 @@ export default function Animation() {
         <Texts position={[-0.5, 0.5, 0.5]}>
           <p>it'll move...</p>
         </Texts>
-        <OrbitControls />
+        {
+          //@ts-ignore
+          <OrbitControls />
+        }
       </Canvas>
     </Layout>
   )

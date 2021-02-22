@@ -78,7 +78,10 @@ function Scene() {
     <>
       {donuts}
       {text}
-      <OrbitControls />
+      {
+        //@ts-ignore
+        <OrbitControls />
+      }
     </>
   )
 }
