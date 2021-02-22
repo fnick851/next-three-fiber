@@ -12,11 +12,10 @@ export default function Basic() {
       </Head>
 
       <Canvas className="bg-black">
-        {/* <mesh>
+        <mesh>
           <boxGeometry args={[1, 1, 1, 5, 5, 5]} />
           <meshBasicMaterial color={0xff0000} />
-        </mesh> */}
-        <LoadingScene />
+        </mesh>
         <OrbitControls />
       </Canvas>
     </Layout>
