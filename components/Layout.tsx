@@ -9,6 +9,7 @@ export default function Layout({ children }) {
     { link: "/3d-text", name: "3D Text" },
     { link: "/materials", name: "Materials" },
     { link: "/textures", name: "Textures" },
+    { link: "/leva", name: "Leva" },
     { link: "/debug-ui", name: "Debug UI" },
     { link: "/geometry", name: "Geometry" },
     { link: "/full-screen", name: "Full Screen" },

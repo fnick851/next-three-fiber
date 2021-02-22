@@ -11,6 +11,7 @@
     "autoprefixer": "^10.2.3",
     "drei": "^2.2.21",
     "gsap": "^3.6.0",
+    "leva": "^0.3.2",
     "next": "^10.0.5",
     "postcss": "^8.2.4",
     "postcss-flexbugs-fixes": "^5.0.2",
