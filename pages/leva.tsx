@@ -28,7 +28,7 @@ function Scene() {
           opacity={color.a}
         />
       </mesh>
-      <Texts position={[-0.5, 0.5, 0.5]}>
+      <Texts position={[-1, 0.5, 0.5]}>
         <p>{text}</p>
       </Texts>
       <OrbitControls />
