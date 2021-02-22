@@ -1,22 +1,10 @@
 import Head from "next/head"
-import dynamic from "next/dynamic"
 import { Canvas } from "react-three-fiber"
 import Layout from "../components/Layout"
 import { useRef } from "react"
 import useFullScreen from "../hooks/useFullScreen"
-
-declare global {
-  interface Document {
-    webkitFullscreenElement: any
-    webkitExitFullscreen: any
-  }
-}
-
-const OrbitControls = dynamic(() => import("../components/OrbitControls"), {
-  ssr: false,
-})
-
-const Texts = dynamic(() => import("../components/Texts"), { ssr: false })
+import { OrbitControls } from "@react-three/drei"
+import Texts from "../components/Texts"
 
 export default function FullScreen() {
   const canvas = useRef(null)

@@ -1,9 +1,10 @@
-import dynamic from "next/dynamic"
 import Head from "next/head"
 import { useEffect, useRef, useState } from "react"
 import { Canvas, MeshProps, useFrame } from "react-three-fiber"
 import { Mesh } from "three"
 import Layout from "../components/Layout"
+import { OrbitControls } from "@react-three/drei"
+import Texts from "../components/Texts"
 
 function ClickableBox(props: MeshProps) {
   const mesh = useRef<Mesh>()
@@ -38,12 +39,6 @@ function ClickableBox(props: MeshProps) {
     </mesh>
   )
 }
-
-const Texts = dynamic(() => import("../components/Texts"), { ssr: false })
-
-const OrbitControls = dynamic(() => import("../components/OrbitControls"), {
-  ssr: false,
-})
 
 export default function Home() {
   return (

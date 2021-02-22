@@ -1,4 +1,4 @@
-import { Html } from "drei"
+import { Html } from "@react-three/drei"
 import { ReactNode } from "react"
 
 export default function Texts(props: {

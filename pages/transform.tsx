@@ -1,13 +1,9 @@
-import dynamic from "next/dynamic"
 import Head from "next/head"
 import { useMemo } from "react"
 import { Canvas } from "react-three-fiber"
 import { BoxBufferGeometry, MeshBasicMaterial } from "three"
 import Layout from "../components/Layout"
-
-const OrbitControls = dynamic(() => import("../components/OrbitControls"), {
-  ssr: false,
-})
+import { OrbitControls } from "@react-three/drei"
 
 export default function Transform() {
   const boxPositions = [-1.5, 0, 1.5]

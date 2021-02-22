@@ -1,14 +1,10 @@
 import Head from "next/head"
-import dynamic from "next/dynamic"
 import { Canvas, useLoader } from "react-three-fiber"
 import Layout from "../components/Layout"
 import { NearestFilter, TextureLoader } from "three"
 import { Suspense } from "react"
 import LoadingScene from "../components/LoadingScene"
-
-const OrbitControls = dynamic(() => import("../components/OrbitControls"), {
-  ssr: false,
-})
+import { OrbitControls } from "@react-three/drei"
 
 const textureImgs = [
   "/textures/minecraft.png",
@@ -16,7 +12,7 @@ const textureImgs = [
   "/textures/checkerboard-1024x1024.png",
 ]
 
-const Scene = () => {
+function Scene() {
   const textures = textureImgs.map((img) => {
     const texture = useLoader(TextureLoader, img)
     texture.generateMipmaps = false

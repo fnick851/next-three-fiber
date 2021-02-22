@@ -1,11 +1,8 @@
 import Head from "next/head"
-import dynamic from "next/dynamic"
 import { Canvas } from "react-three-fiber"
 import Layout from "../components/Layout"
-
-const OrbitControls = dynamic(() => import("../components/OrbitControls"), {
-  ssr: false,
-})
+import { OrbitControls } from "@react-three/drei"
+import LoadingScene from "../components/LoadingScene"
 
 export default function Basic() {
   return (
@@ -15,10 +12,11 @@ export default function Basic() {
       </Head>
 
       <Canvas className="bg-black">
-        <mesh>
+        {/* <mesh>
           <boxGeometry args={[1, 1, 1, 5, 5, 5]} />
           <meshBasicMaterial color={0xff0000} />
-        </mesh>
+        </mesh> */}
+        <LoadingScene />
         <OrbitControls />
       </Canvas>
     </Layout>

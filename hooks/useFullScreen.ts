@@ -1,5 +1,12 @@
 import { MutableRefObject, useEffect } from "react"
 
+declare global {
+  interface Document {
+    webkitFullscreenElement: any
+    webkitExitFullscreen: any
+  }
+}
+
 export default function useFullScreen(ref: MutableRefObject<any>) {
   useEffect(() => {
     const view = ref.current

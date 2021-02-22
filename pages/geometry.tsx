@@ -1,12 +1,8 @@
 import Head from "next/head"
-import dynamic from "next/dynamic"
 import { Canvas, useUpdate } from "react-three-fiber"
 import Layout from "../components/Layout"
 import { BufferAttribute, BufferGeometry } from "three"
-
-const OrbitControls = dynamic(() => import("../components/OrbitControls"), {
-  ssr: false,
-})
+import { OrbitControls } from "@react-three/drei"
 
 const triangleCount = 50
 const verticePerTriangle = 3
@@ -16,7 +12,7 @@ const positionsArray = new Float32Array(floatCount)
 for (let i = 0; i < floatCount; i++)
   positionsArray[i] = (Math.random() - 0.5) * 4
 
-const Scene = () => {
+function Scene() {
   const ref = useUpdate((geometry: BufferGeometry) => {
     geometry.setAttribute(
       "position",

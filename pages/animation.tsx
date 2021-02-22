@@ -3,9 +3,10 @@ import { Canvas, useUpdate } from "react-three-fiber"
 import Layout from "../components/Layout"
 import gsap from "gsap"
 import { Object3D } from "three"
-import dynamic from "next/dynamic"
+import { OrbitControls } from "@react-three/drei"
+import Texts from "../components/Texts"
 
-const Box = () => {
+function Box() {
   const mesh = useUpdate((mesh: Object3D) => {
     gsap.to(mesh.position, { duration: 1, delay: 1.5, x: 2 })
   }, [])
@@ -17,12 +18,6 @@ const Box = () => {
     </mesh>
   )
 }
-
-const OrbitControls = dynamic(() => import("../components/OrbitControls"), {
-  ssr: false,
-})
-
-const Texts = dynamic(() => import("../components/Texts"), { ssr: false })
 
 export default function Animation() {
   return (
