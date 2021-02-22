@@ -3,7 +3,6 @@ import dynamic from "next/dynamic"
 import { Canvas } from "react-three-fiber"
 import Layout from "../components/Layout"
 import { useControls } from "leva"
-import { Color } from "three"
 
 const OrbitControls = dynamic(() => import("../components/OrbitControls"), {
   ssr: false,
@@ -37,11 +36,11 @@ function Scene() {
   )
 }
 
-export default function Basic() {
+export default function Leva() {
   return (
     <Layout>
       <Head>
-        <title>Camera</title>
+        <title>Leva</title>
       </Head>
 
       <Canvas className="bg-black">

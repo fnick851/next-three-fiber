@@ -7,12 +7,8 @@ import {
   TorusGeometry,
 } from "three"
 import { Controls, useControl } from "react-three-gui"
-import dynamic from "next/dynamic"
+import OrbitControls from "./OrbitControls"
 import LoadingScene from "./LoadingScene"
-
-const OrbitControls = dynamic(() => import("../components/OrbitControls"), {
-  ssr: false,
-})
 
 function Scene() {
   const matCapTextureFile = useControl("Texture", {

@@ -61,9 +61,9 @@ export default function Home() {
         <ClickableBox position={[-1, 0, 0]} />
         <ClickableBox position={[1, 0, 0]} />
         <axesHelper args={[3]} />
-        <ambientLight args={["white", 0.1]} />
-        <pointLight position={[10, 10, 10]} />
-        <spotLight position={[-1.5, -1.5, -1]} color="red" />
+        <ambientLight args={["#FF1493", 0.1]} />
+        <pointLight position={[10, 10, 10]} color="#9400D3" />
+        <spotLight position={[-1.5, -1.5, -1]} color="#6495ED" />
         <OrbitControls />
       </Canvas>
     </Layout>

@@ -1,12 +1,8 @@
-import dynamic from "next/dynamic"
+import OrbitControls from "./OrbitControls"
 import { useRef } from "react"
 import { useFrame } from "react-three-fiber"
 import { Controls, useControl } from "react-three-gui"
 import { CubeTextureLoader, DoubleSide } from "three"
-
-const OrbitControls = dynamic(() => import("../components/OrbitControls"), {
-  ssr: false,
-})
 
 function Scene() {
   const cubeTextureLoader = new CubeTextureLoader()
