@@ -40,9 +40,9 @@ function Scene() {
   const spotLightRef = useRef(null)
   useEffect(() => {
     if (spotLightRef.current) {
-      const spotLightTerget = spotLightRef.current.target
-      spotLightTerget.position.x = 0.5
-      scene.add(spotLightTerget)
+      const spotLightTarget = spotLightRef.current.target
+      spotLightTarget.position.x = 0.5
+      scene.add(spotLightTarget)
     }
   })
   useHelper(spotLightRef, SpotLightHelper)
