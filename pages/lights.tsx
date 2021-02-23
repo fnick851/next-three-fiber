@@ -4,6 +4,7 @@ import Layout from "../components/Layout"
 import { OrbitControls, useHelper } from "@react-three/drei"
 import {
   DirectionalLightHelper,
+  DoubleSide,
   HemisphereLightHelper,
   MeshStandardMaterial,
   PointLightHelper,
@@ -71,12 +72,9 @@ function Scene() {
         <torusGeometry args={[0.3, 0.2, 32, 64]} />
       </mesh>
 
-      <mesh
-        material={material}
-        position={[0, -0.65, 0]}
-        rotation={[-Math.PI * 0.5, 0, 0]}
-      >
+      <mesh position={[0, -0.65, 0]} rotation={[-Math.PI * 0.5, 0, 0]}>
         <planeGeometry args={[5, 5]} />
+        <meshStandardMaterial side={DoubleSide} />
       </mesh>
 
       <ambientLight color={"white"} intensity={0.05} />
