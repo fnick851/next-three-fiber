@@ -1,5 +1,5 @@
 import Head from "next/head"
-import { Canvas, useFrame } from "react-three-fiber"
+import { Canvas, useFrame, useThree } from "react-three-fiber"
 import Layout from "../components/Layout"
 import { OrbitControls, useHelper } from "@react-three/drei"
 import {
@@ -15,6 +15,8 @@ import { RectAreaLightHelper } from "three/examples/jsm/helpers/RectAreaLightHel
 import { useEffect, useRef } from "react"
 
 function Scene() {
+  const { scene } = useThree()
+
   const hemisphereLightRef = useRef(null)
   useHelper(hemisphereLightRef, HemisphereLightHelper, 0.2)
 
@@ -28,14 +30,19 @@ function Scene() {
   useEffect(() => {
     if (rectAreaLightRef.current) {
       rectAreaLightRef.current.lookAt(new Vector3())
+      const rectAreaLightHelper = new RectAreaLightHelper(
+        rectAreaLightRef.current
+      )
+      rectAreaLightRef.current.add(rectAreaLightHelper)
     }
   })
-  useHelper(rectAreaLightRef, RectAreaLightHelper)
 
   const spotLightRef = useRef(null)
   useEffect(() => {
     if (spotLightRef.current) {
-      spotLightRef.current.target.position.x = -0.75
+      const spotLightTerget = spotLightRef.current.target
+      spotLightTerget.position.x = 0.5
+      scene.add(spotLightTerget)
     }
   })
   useHelper(spotLightRef, SpotLightHelper)
@@ -107,6 +114,7 @@ function Scene() {
     </>
   )
 }
+
 export default function Basic() {
   return (
     <Layout>
