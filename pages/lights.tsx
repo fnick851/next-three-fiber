@@ -11,7 +11,10 @@ import {
   SpotLightHelper,
   Vector3,
 } from "three"
-import { RectAreaLightHelper } from "three/examples/jsm/helpers/RectAreaLightHelper.js"
+/**
+ * temporarily remove the helper since it does not work with three@0.125
+ */
+// import { RectAreaLightHelper } from "three/examples/jsm/helpers/RectAreaLightHelper.js"
 import { useEffect, useRef } from "react"
 
 function Scene() {
@@ -30,10 +33,10 @@ function Scene() {
   useEffect(() => {
     if (rectAreaLightRef.current) {
       rectAreaLightRef.current.lookAt(new Vector3())
-      const rectAreaLightHelper = new RectAreaLightHelper(
-        rectAreaLightRef.current
-      )
-      rectAreaLightRef.current.add(rectAreaLightHelper)
+      // const rectAreaLightHelper = new RectAreaLightHelper(
+      //   rectAreaLightRef.current
+      // )
+      // rectAreaLightRef.current.add(rectAreaLightHelper)
     }
   })
 
