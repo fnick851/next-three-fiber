@@ -15,10 +15,7 @@ export default function Basic() {
           <boxGeometry args={[1, 1, 1, 5, 5, 5]} />
           <meshBasicMaterial color={0xff0000} />
         </mesh>
-        {
-          //@ts-ignore
-          <OrbitControls />
-        }
+        <OrbitControls />
       </Canvas>
     </Layout>
   )

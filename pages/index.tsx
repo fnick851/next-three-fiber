@@ -59,10 +59,7 @@ export default function Home() {
         <ambientLight args={["#FF1493", 0.1]} />
         <pointLight position={[10, 10, 10]} color="#9400D3" />
         <spotLight position={[-1.5, -1.5, -1]} color="#6495ED" />
-        {
-          //@ts-ignore
-          <OrbitControls />
-        }
+        <OrbitControls />
       </Canvas>
     </Layout>
   )

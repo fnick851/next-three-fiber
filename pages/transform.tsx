@@ -24,10 +24,7 @@ export default function Transform() {
         <group scale={[1, 2, 1]} rotation={[0, 0.2, 0]}>
           {boxMeshes}
         </group>
-        {
-          //@ts-ignore
-          <OrbitControls />
-        }
+        <OrbitControls />
       </Canvas>
     </Layout>
   )
