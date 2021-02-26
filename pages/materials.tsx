@@ -94,7 +94,11 @@ export default function Materials() {
             <OrbitControls />
           }
         </Controls.Canvas>
-        <Controls title="Parameter Control" anchor="bottom_left" />
+        <Controls
+          collapsed={false}
+          title="Parameter Control"
+          anchor="bottom_left"
+        />
       </Controls.Provider>
     </Layout>
   )

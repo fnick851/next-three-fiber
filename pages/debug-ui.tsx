@@ -68,7 +68,11 @@ export default function DebugUI() {
         <Controls.Canvas className="bg-black">
           <Scene />
         </Controls.Canvas>
-        <Controls title="Parameter Control" anchor="bottom_left" />
+        <Controls
+          collapsed={false}
+          title="Parameter Control"
+          anchor="bottom_left"
+        />
       </Controls.Provider>
     </Layout>
   )
