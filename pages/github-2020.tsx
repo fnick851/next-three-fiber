@@ -8,7 +8,7 @@ import { useGLTF } from "@react-three/drei"
 import { OrbitControls } from "@react-three/drei"
 import { LoadingScene } from "../components/LoadingScene"
 
-function Github2020Scene() {
+function Scene() {
   const gltf = useGLTF("/models/fnick851-github-2020.glb")
   const { nodes } = gltf
 
@@ -85,7 +85,7 @@ export default function Github2020() {
 
       <Canvas className="bg-black">
         <Suspense fallback={<LoadingScene />}>
-          <Github2020Scene />
+          <Scene />
         </Suspense>
       </Canvas>
     </Layout>
