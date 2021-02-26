@@ -49,8 +49,12 @@ export default function Home() {
 
       <Canvas className="bg-black">
         <Texts position={[-2, 3, 0]}>
-          <p>welcome.</p>
-          <p>drag and scroll to navigate. </p>
+          <p>welcome :)</p>
+          <br />
+          <p>click upper left corner to open menu.</p>
+          <br />
+
+          <p>drag and scroll to navigate,</p>
           <p>sometimes it is clickable too.</p>
         </Texts>
         <ClickableBox position={[-1, 0, 0]} />

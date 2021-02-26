@@ -2,6 +2,7 @@ import Head from "next/head"
 import Link from "next/link"
 import Image from "next/image"
 import { useRouter } from "next/router"
+import { useState } from "react"
 
 export function Layout({ children }) {
   const links = [
@@ -35,6 +36,8 @@ export function Layout({ children }) {
     </Link>
   ))
 
+  const [menuOpen, setMenuOpen] = useState(false)
+
   return (
     <>
       <Head>
@@ -42,18 +45,39 @@ export function Layout({ children }) {
         <link rel="icon" href="/images/favicon.ico" />
       </Head>
 
-      <div className="antialiased font-sans flex h-screen">
-        <div className="flex flex-col w-64 max-h-screen">
+      <div className="antialiased font-sans h-screen">
+        <div
+          className="cursor-pointer fixed left-2 top-1 w-1/12 z-10"
+          onClick={() => setMenuOpen(true)}
+        >
+          <Image
+            src="/images/favicon-logo.png"
+            alt="Picture of the author"
+            width={60}
+            height={60}
+          />
+        </div>
+        <div
+          className={
+            (menuOpen ? "" : "hidden") +
+            " fixed flex flex-col w-64 max-h-screen z-10 h-full"
+          }
+        >
           <div className="flex flex-col flex-grow border-r border-gray-200 pt-5 pb-4 bg-white overflow-y-auto">
-            <div className="flex items-center flex-shrink-0 px-4">
-              <a href="/">
-                <Image
-                  src="/images/favicon-logo.png"
-                  alt="Picture of the author"
-                  width={60}
-                  height={60}
+            <div className="text-center" onClick={() => setMenuOpen(false)}>
+              <svg
+                className="h-6 w-6 inline-block cursor-pointer"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
                 />
-              </a>
+              </svg>
             </div>
             <div className="mt-5 flex-grow flex flex-col">
               <nav
