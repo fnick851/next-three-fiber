@@ -1,11 +1,11 @@
 import Head from "next/head"
 import { Canvas, useFrame, useLoader, useThree } from "react-three-fiber"
-import Layout from "../components/Layout"
+import { Layout } from "../components/Layout"
 import { OrbitControls, useHelper } from "@react-three/drei"
 import { useControls } from "leva"
 import { CameraHelper, SpotLightHelper, TextureLoader } from "three"
 import { Suspense, useEffect, useRef } from "react"
-import LoadingScene from "../components/LoadingScene"
+import { LoadingScene } from "../components/LoadingScene"
 
 function Scene() {
   const {

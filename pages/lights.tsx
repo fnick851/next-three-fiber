@@ -1,6 +1,6 @@
 import Head from "next/head"
 import { Canvas, useFrame, useThree } from "react-three-fiber"
-import Layout from "../components/Layout"
+import { Layout } from "../components/Layout"
 import { OrbitControls, useHelper } from "@react-three/drei"
 import {
   DirectionalLightHelper,

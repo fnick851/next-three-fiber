@@ -1,7 +1,7 @@
 import { useUpdate } from "react-three-fiber"
 import { BoxGeometry, Float32BufferAttribute } from "three"
 
-export default function useUV2() {
+export function useUV2() {
   const geomRef = useUpdate((geometry: BoxGeometry) => {
     geometry.setAttribute(
       "uv2",

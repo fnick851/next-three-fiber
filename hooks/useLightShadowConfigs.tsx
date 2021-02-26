@@ -1,6 +1,6 @@
 import { MutableRefObject, useEffect } from "react"
 
-export default function useLightShadowConfigs(lightRef: MutableRefObject<any>) {
+export function useLightShadowConfigs(lightRef: MutableRefObject<any>) {
   useEffect(() => {
     const light = lightRef.current
     if (light) {

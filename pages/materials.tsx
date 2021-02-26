@@ -1,5 +1,5 @@
 import Head from "next/head"
-import Layout from "../components/Layout"
+import { Layout } from "../components/Layout"
 import { OrbitControls } from "@react-three/drei"
 import { useRef } from "react"
 import { useFrame } from "react-three-fiber"

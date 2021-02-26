@@ -1,9 +1,9 @@
 import Head from "next/head"
 import { Canvas, useLoader } from "react-three-fiber"
-import Layout from "../components/Layout"
+import { Layout } from "../components/Layout"
 import { NearestFilter, TextureLoader } from "three"
 import { Suspense } from "react"
-import LoadingScene from "../components/LoadingScene"
+import { LoadingScene } from "../components/LoadingScene"
 import { OrbitControls } from "@react-three/drei"
 
 const textureImgs = [

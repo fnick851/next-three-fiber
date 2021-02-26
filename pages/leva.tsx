@@ -1,9 +1,9 @@
 import Head from "next/head"
 import { Canvas } from "react-three-fiber"
-import Layout from "../components/Layout"
+import { Layout } from "../components/Layout"
 import { useControls } from "leva"
 import { OrbitControls } from "@react-three/drei"
-import Texts from "../components/Texts"
+import { Texts } from "../components/Texts"
 
 function Scene() {
   const { text, width, height, depth, color } = useControls({

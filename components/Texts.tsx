@@ -1,7 +1,7 @@
 import { Html } from "@react-three/drei"
 import { ReactNode } from "react"
 
-export default function Texts(props: {
+export function Texts(props: {
   position: [x: number, y: number, y: number]
   children: ReactNode
 }) {

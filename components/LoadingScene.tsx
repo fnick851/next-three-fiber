@@ -2,7 +2,7 @@ import { useRef } from "react"
 import { useFrame } from "react-three-fiber"
 import { Html } from "@react-three/drei"
 
-export default function LoadingScene() {
+export function LoadingScene() {
   const meshRef = useRef(null)
   const speed = 0.05
   const maxScale = 1.5

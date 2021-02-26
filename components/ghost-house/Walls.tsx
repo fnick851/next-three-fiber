@@ -1,8 +1,8 @@
 import { useLoader } from "react-three-fiber"
 import { TextureLoader } from "three"
-import useUV2 from "../../hooks/useUV2"
+import { useUV2 } from "../../hooks/useUV2"
 
-export default function Walls() {
+export function Walls() {
   const bricksColorTexture = useLoader(
     TextureLoader,
     "/textures/ghost-house/bricks/color.jpg"

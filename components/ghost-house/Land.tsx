@@ -1,8 +1,8 @@
 import { useLoader } from "react-three-fiber"
 import { DoubleSide, RepeatWrapping, TextureLoader } from "three"
-import useUV2 from "../../hooks/useUV2"
+import { useUV2 } from "../../hooks/useUV2"
 
-export default function Land() {
+export function Land() {
   const grassColorTexture = useLoader(
     TextureLoader,
     "/textures/ghost-house/grass/color.jpg"

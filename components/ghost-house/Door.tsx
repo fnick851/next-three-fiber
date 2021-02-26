@@ -1,8 +1,8 @@
 import { useLoader } from "react-three-fiber"
 import { TextureLoader } from "three"
-import useUV2 from "../../hooks/useUV2"
+import { useUV2 } from "../../hooks/useUV2"
 
-export default function Door() {
+export function Door() {
   const doorColorTexture = useLoader(
     TextureLoader,
     "/textures/ghost-house/door/color.jpg"

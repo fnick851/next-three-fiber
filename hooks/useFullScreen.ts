@@ -7,7 +7,7 @@ declare global {
   }
 }
 
-export default function useFullScreen(ref: MutableRefObject<any>) {
+export function useFullScreen(ref: MutableRefObject<any>) {
   useEffect(() => {
     const view = ref.current
     const originalW = view.offsetWidth

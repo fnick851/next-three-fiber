@@ -1,7 +1,7 @@
 import { useRef } from "react"
-import useLightShadowConfigs from "../../hooks/useLightShadowConfigs"
+import { useLightShadowConfigs } from "../../hooks/useLightShadowConfigs"
 
-export default function Lights() {
+export function Lights() {
   const moonLightRef = useRef(null)
   useLightShadowConfigs(moonLightRef)
 

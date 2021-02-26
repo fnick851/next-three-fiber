@@ -1,8 +1,7 @@
-import { useRouter } from "next/router"
 import { useRef } from "react"
 import { useFrame } from "react-three-fiber"
 
-export default function Ghosts() {
+export function Ghosts() {
   const ghost1Ref = useRef(null)
   const ghost2Ref = useRef(null)
   const ghost3Ref = useRef(null)

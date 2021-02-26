@@ -1,9 +1,9 @@
 import { useRef } from "react"
-import Walls from "./Walls"
-import Roof from "./Roof"
-import Door from "./Door"
-import Bushes from "./Bushes"
-import useLightShadowConfigs from "../../hooks/useLightShadowConfigs"
+import { Walls } from "./Walls"
+import { Roof } from "./Roof"
+import { Door } from "./Door"
+import { Bushes } from "./Bushes"
+import { useLightShadowConfigs } from "../../hooks/useLightShadowConfigs"
 
 export function House() {
   const doorLightRef = useRef(null)

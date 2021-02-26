@@ -2,7 +2,7 @@ import Head from "next/head"
 import { useMemo } from "react"
 import { Canvas } from "react-three-fiber"
 import { BoxBufferGeometry, MeshBasicMaterial } from "three"
-import Layout from "../components/Layout"
+import { Layout } from "../components/Layout"
 import { OrbitControls } from "@react-three/drei"
 
 export default function Transform() {

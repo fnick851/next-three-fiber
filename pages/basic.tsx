@@ -1,6 +1,6 @@
 import Head from "next/head"
 import { Canvas } from "react-three-fiber"
-import Layout from "../components/Layout"
+import { Layout } from "../components/Layout"
 import { OrbitControls } from "@react-three/drei"
 
 export default function Basic() {

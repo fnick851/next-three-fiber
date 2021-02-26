@@ -1,6 +1,6 @@
 import { MeshStandardMaterial, SphereGeometry, Vector3 } from "three"
 
-export default function Bushes() {
+export function Bushes() {
   const bushGeometry = new SphereGeometry(1, 16, 16)
   const bushMaterial = new MeshStandardMaterial({ color: "#89c854" })
 

@@ -1,6 +1,6 @@
 import Head from "next/head"
 import { Canvas, useUpdate } from "react-three-fiber"
-import Layout from "../components/Layout"
+import { Layout } from "../components/Layout"
 import { BufferAttribute, BufferGeometry } from "three"
 import { OrbitControls } from "@react-three/drei"
 

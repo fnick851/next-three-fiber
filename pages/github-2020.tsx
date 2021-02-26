@@ -1,12 +1,12 @@
 import Head from "next/head"
 import { Canvas } from "react-three-fiber"
-import Layout from "../components/Layout"
+import { Layout } from "../components/Layout"
 import { useControls } from "leva"
 import { useFrame } from "react-three-fiber"
 import { Suspense, useRef } from "react"
 import { useGLTF } from "@react-three/drei"
 import { OrbitControls } from "@react-three/drei"
-import LoadingScene from "../components/LoadingScene"
+import { LoadingScene } from "../components/LoadingScene"
 
 function Github2020Scene() {
   const gltf = useGLTF("/models/fnick851-github-2020.glb")

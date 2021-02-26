@@ -1,5 +1,5 @@
 import Head from "next/head"
-import Layout from "../components/Layout"
+import { Layout } from "../components/Layout"
 import { Controls, useControl } from "react-three-gui"
 import { useRef, useState } from "react"
 import gsap from "gsap"

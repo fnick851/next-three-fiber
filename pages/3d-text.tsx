@@ -1,5 +1,5 @@
 import Head from "next/head"
-import Layout from "../components/Layout"
+import { Layout } from "../components/Layout"
 import { Suspense, useEffect, useMemo, useRef } from "react"
 import { useLoader } from "react-three-fiber"
 import {
@@ -10,7 +10,7 @@ import {
 } from "three"
 import { Controls, useControl } from "react-three-gui"
 import { OrbitControls } from "@react-three/drei"
-import LoadingScene from "../components/LoadingScene"
+import { LoadingScene } from "../components/LoadingScene"
 
 function Scene() {
   const matCapTextureFile = useControl("Texture", {

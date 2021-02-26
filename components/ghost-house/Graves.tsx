@@ -1,6 +1,6 @@
 import { BoxGeometry, MeshStandardMaterial } from "three"
 
-export default function Graves() {
+export function Graves() {
   const graveGeometry = new BoxGeometry(0.6, 0.8, 0.1)
   const graveMaterial = new MeshStandardMaterial({ color: "#727272" })
 

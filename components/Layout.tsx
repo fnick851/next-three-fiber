@@ -3,7 +3,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { useRouter } from "next/router"
 
-export default function Layout({ children }) {
+export function Layout({ children }) {
   const links = [
     { link: "/", name: "Home" },
     { link: "/ghost-house", name: "Ghost House" },

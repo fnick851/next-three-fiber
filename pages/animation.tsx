@@ -1,10 +1,10 @@
 import Head from "next/head"
 import { Canvas, useUpdate } from "react-three-fiber"
-import Layout from "../components/Layout"
+import { Layout } from "../components/Layout"
 import gsap from "gsap"
 import { Object3D } from "three"
 import { OrbitControls } from "@react-three/drei"
-import Texts from "../components/Texts"
+import { Texts } from "../components/Texts"
 
 function Box() {
   const mesh = useUpdate((mesh: Object3D) => {
