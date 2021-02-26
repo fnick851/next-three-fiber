@@ -26,7 +26,10 @@ function Scene() {
         <House />
         <Land />
       </Suspense>
-      <OrbitControls />
+      {
+        //@ts-ignore
+        <OrbitControls />
+      }
     </>
   )
 }

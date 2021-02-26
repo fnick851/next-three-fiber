@@ -1,22 +1,27 @@
 import Head from "next/head"
 import { Layout } from "../components/Layout"
 import { Suspense, useEffect, useMemo, useRef } from "react"
-import { useLoader } from "react-three-fiber"
+import { Canvas, useLoader } from "react-three-fiber"
 import {
   FontLoader,
   MeshMatcapMaterial,
   TextureLoader,
   TorusGeometry,
 } from "three"
-import { Controls, useControl } from "react-three-gui"
 import { OrbitControls } from "@react-three/drei"
 import { LoadingScene } from "../components/LoadingScene"
+import { useControls } from "leva"
 
 function Scene() {
-  const matCapTextureFile = useControl("Texture", {
-    type: "select",
-    items: ["1", "2", "3", "4", "5", "6", "7", "8"],
+  const { matCapTextureFile } = useControls({
+    matCapTextureFile: {
+      value: 1,
+      min: 1,
+      max: 8,
+      step: 1,
+    },
   })
+
   const matCapTexture = useLoader(
     TextureLoader,
     `/textures/matcaps/${matCapTextureFile}.png`
@@ -93,18 +98,11 @@ export default function ThreeDText() {
         <title>3D Text</title>
       </Head>
 
-      <Controls.Provider>
-        <Controls.Canvas className="bg-black">
-          <Suspense fallback={<LoadingScene />}>
-            <Scene />
-          </Suspense>
-        </Controls.Canvas>
-        <Controls
-          collapsed={false}
-          title="Parameter Control"
-          anchor="bottom_left"
-        />
-      </Controls.Provider>
+      <Canvas className="bg-black">
+        <Suspense fallback={<LoadingScene />}>
+          <Scene />
+        </Suspense>
+      </Canvas>
     </Layout>
   )
 }

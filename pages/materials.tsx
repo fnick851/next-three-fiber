@@ -2,11 +2,26 @@ import Head from "next/head"
 import { Layout } from "../components/Layout"
 import { OrbitControls } from "@react-three/drei"
 import { useRef } from "react"
-import { useFrame } from "react-three-fiber"
-import { Controls, useControl } from "react-three-gui"
+import { Canvas, useFrame } from "react-three-fiber"
 import { CubeTextureLoader, DoubleSide } from "three"
+import { useControls } from "leva"
 
 function Scene() {
+  const { metalness, roughness } = useControls({
+    metalness: {
+      value: 1,
+      min: 0,
+      max: 1,
+      step: 0.01,
+    },
+    roughness: {
+      value: 0,
+      min: 0,
+      max: 1,
+      step: 0.01,
+    },
+  })
+
   const cubeTextureLoader = new CubeTextureLoader()
   const envMapTexture = cubeTextureLoader.load([
     "/textures/environmentMaps/0/px.jpg",
@@ -16,19 +31,6 @@ function Scene() {
     "/textures/environmentMaps/0/pz.jpg",
     "/textures/environmentMaps/0/nz.jpg",
   ])
-
-  const metalness = useControl("Metal", {
-    type: "number",
-    value: 1,
-    min: 0,
-    max: 1,
-  })
-  const roughness = useControl("Rough", {
-    type: "number",
-    value: 0,
-    min: 0,
-    max: 1,
-  })
 
   const sphereRef = useRef(null)
   const planeRef = useRef(null)
@@ -84,22 +86,15 @@ export default function Materials() {
         <title>Materials</title>
       </Head>
 
-      <Controls.Provider>
-        <Controls.Canvas className="bg-black">
-          <Scene />
-          <ambientLight color={0xffffff} intensity={0.5} />
-          <pointLight color={0xffffff} intensity={0.5} position={[2, 3, 4]} />
-          {
-            //@ts-ignore
-            <OrbitControls />
-          }
-        </Controls.Canvas>
-        <Controls
-          collapsed={false}
-          title="Parameter Control"
-          anchor="bottom_left"
-        />
-      </Controls.Provider>
+      <Canvas className="bg-black">
+        <Scene />
+        <ambientLight color={0xffffff} intensity={0.5} />
+        <pointLight color={0xffffff} intensity={0.5} position={[2, 3, 4]} />
+        {
+          //@ts-ignore
+          <OrbitControls />
+        }
+      </Canvas>
     </Layout>
   )
 }

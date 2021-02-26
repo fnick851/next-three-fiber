@@ -15,7 +15,6 @@ export function Layout({ children }) {
     { link: "/materials", name: "Materials" },
     { link: "/textures", name: "Textures" },
     { link: "/leva", name: "Leva" },
-    { link: "/debug-ui", name: "Debug UI" },
     { link: "/geometry", name: "Geometry" },
     { link: "/full-screen", name: "Full Screen" },
     { link: "/animation", name: "Animation" },
