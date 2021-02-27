@@ -28,22 +28,18 @@ function Scene() {
 
   const rectAreaLightRef = useRef(null)
   useEffect(() => {
-    if (rectAreaLightRef.current) {
-      rectAreaLightRef.current.lookAt(new Vector3())
-      const rectAreaLightHelper = new RectAreaLightHelper(
-        rectAreaLightRef.current
-      )
-      rectAreaLightRef.current.add(rectAreaLightHelper)
-    }
+    const light = rectAreaLightRef.current
+    light.lookAt(new Vector3())
+    const rectAreaLightHelper = new RectAreaLightHelper(light)
+    light.add(rectAreaLightHelper)
   })
 
   const spotLightRef = useRef(null)
   useEffect(() => {
-    if (spotLightRef.current) {
-      const spotLightTarget = spotLightRef.current.target
-      spotLightTarget.position.x = 0.5
-      scene.add(spotLightTarget)
-    }
+    const light = spotLightRef.current
+    const spotLightTarget = light.target
+    spotLightTarget.position.x = 0.5
+    scene.add(spotLightTarget)
   })
   useHelper(spotLightRef, SpotLightHelper)
 
@@ -115,7 +111,7 @@ function Scene() {
   )
 }
 
-export default function Basic() {
+export default function Lights() {
   return (
     <Layout>
       <Head>

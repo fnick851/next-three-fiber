@@ -22,7 +22,7 @@ function ClickableBox(props: MeshProps) {
   })
 
   useFrame(() => {
-    if (mesh.current) mesh.current.rotation.x = mesh.current.rotation.y += 0.01
+    mesh.current.rotation.x = mesh.current.rotation.y += 0.01
   })
 
   return (

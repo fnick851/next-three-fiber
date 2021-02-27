@@ -37,9 +37,7 @@ function Scene() {
   const meshRef = useRef(null)
 
   useFrame(() => {
-    if (meshRef.current) {
-      meshRef.current.rotation.z += 0.01
-    }
+    meshRef.current.rotation.z += 0.01
   })
 
   return (

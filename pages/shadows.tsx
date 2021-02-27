@@ -12,14 +12,10 @@ function Scene() {
     ambient_intensity,
     directional_intensity,
     directional_position,
-    roughness,
-    metalness,
   } = useControls({
     ambient_intensity: 0.1,
     directional_intensity: 0.1,
     directional_position: [3, 2, 1],
-    roughness: 0,
-    metalness: 0,
   })
 
   const simpleShadow = useLoader(
@@ -99,15 +95,11 @@ function Scene() {
     <>
       <mesh ref={sphereRef} castShadow={true}>
         <sphereGeometry args={[0.5, 32, 32]} />
-        <meshStandardMaterial
-          color={"orange"}
-          roughness={roughness}
-          metalness={metalness}
-        />
+        <meshStandardMaterial color={"orange"} roughness={0} metalness={0} />
       </mesh>
       <mesh position={[0, planePosY, 0]} rotation={[-Math.PI * 0.5, 0, 0]}>
         <planeGeometry args={[5, 5]} />
-        <meshStandardMaterial roughness={roughness} metalness={metalness} />
+        <meshStandardMaterial roughness={0} metalness={0} />
       </mesh>
       <mesh
         ref={sphereShadowRef}
@@ -141,7 +133,7 @@ function Scene() {
   )
 }
 
-export default function Shadow() {
+export default function Shadows() {
   return (
     <Layout>
       <Head>

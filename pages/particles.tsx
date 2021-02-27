@@ -1,0 +1,91 @@
+import Head from "next/head"
+import { Canvas, useFrame, useLoader, useUpdate } from "react-three-fiber"
+import { Layout } from "../components/Layout"
+import { OrbitControls } from "@react-three/drei"
+import {
+  AdditiveBlending,
+  BufferAttribute,
+  BufferGeometry,
+  TextureLoader,
+} from "three"
+import { Suspense } from "react"
+import { LoadingScene } from "../components/LoadingScene"
+import { useControls } from "leva"
+
+function Scene() {
+  const { particle_style } = useControls({
+    particle_style: {
+      value: 1,
+      min: 1,
+      max: 13,
+      step: 1,
+    },
+  })
+
+  const particleTexture = useLoader(
+    TextureLoader,
+    `/textures/particles/${particle_style}.png`
+  )
+
+  const count = 15000
+  const positions = new Float32Array(count * 3)
+  const colors = new Float32Array(count * 3)
+  for (let i = 0; i < count * 3; i++) {
+    positions[i] = (Math.random() - 0.5) * 10
+    colors[i] = Math.random()
+  }
+
+  const particlesGeomRef = useUpdate((geometry: BufferGeometry) => {
+    geometry.setAttribute("position", new BufferAttribute(positions, 3))
+    geometry.setAttribute("color", new BufferAttribute(colors, 3))
+  }, [])
+
+  useFrame((state) => {
+    const elapsedTime = state.clock.getElapsedTime()
+    const particlesGeometry = particlesGeomRef.current
+    const geomPos = particlesGeometry.attributes.position
+    for (let i = 0; i < count; i++) {
+      const x = geomPos.getX(i)
+      geomPos.setY(i, Math.tan(elapsedTime + x))
+    }
+    geomPos.needsUpdate = true
+  })
+
+  return (
+    <>
+      <points>
+        <bufferGeometry ref={particlesGeomRef} />
+        <pointsMaterial
+          size={0.1}
+          sizeAttenuation={true}
+          color={"#ff88cc"}
+          transparent={true}
+          alphaMap={particleTexture}
+          depthWrite={false}
+          blending={AdditiveBlending}
+          vertexColors={true}
+        />
+      </points>
+    </>
+  )
+}
+
+export default function Particles() {
+  return (
+    <Layout>
+      <Head>
+        <title>Particles</title>
+      </Head>
+
+      <Canvas className="bg-black">
+        <Suspense fallback={<LoadingScene />}>
+          <Scene />
+        </Suspense>
+        {
+          //@ts-ignore
+          <OrbitControls />
+        }
+      </Canvas>
+    </Layout>
+  )
+}
