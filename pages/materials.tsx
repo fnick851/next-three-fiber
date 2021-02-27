@@ -38,14 +38,19 @@ function Scene() {
 
   useFrame((state) => {
     const elapsedTime = state.clock.getElapsedTime()
+    const sphere = sphereRef.current
+    const plane = planeRef.current
+    const torus = torusRef.current
 
-    sphereRef.current.rotation.y = 0.2 * elapsedTime
-    planeRef.current.rotation.y = 0.2 * elapsedTime
-    torusRef.current.rotation.y = 0.2 * elapsedTime
+    if (sphere && plane && torus) {
+      sphere.rotation.y = 0.2 * elapsedTime
+      plane.rotation.y = 0.2 * elapsedTime
+      torus.rotation.y = 0.2 * elapsedTime
 
-    sphereRef.current.rotation.x = 0.2 * elapsedTime
-    planeRef.current.rotation.x = 0.2 * elapsedTime
-    torusRef.current.rotation.x = 0.2 * elapsedTime
+      sphere.rotation.x = 0.2 * elapsedTime
+      plane.rotation.x = 0.2 * elapsedTime
+      torus.rotation.x = 0.2 * elapsedTime
+    }
   })
 
   return (

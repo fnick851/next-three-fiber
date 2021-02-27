@@ -9,19 +9,22 @@ export function LoadingScene() {
   const minScale = 0.1
   let direction = "up"
   useFrame(() => {
-    if (meshRef.current.scale.x > maxScale) {
-      direction = "down"
-    }
-    if (meshRef.current.scale.x < minScale) {
-      direction = "up"
-    }
-    if (direction === "up") {
-      meshRef.current.scale.x += speed
-      meshRef.current.scale.y += speed
-    }
-    if (direction === "down") {
-      meshRef.current.scale.x -= speed
-      meshRef.current.scale.y -= speed
+    const circle = meshRef.current
+    if (circle) {
+      if (circle.scale.x > maxScale) {
+        direction = "down"
+      }
+      if (circle.scale.x < minScale) {
+        direction = "up"
+      }
+      if (direction === "up") {
+        circle.scale.x += speed
+        circle.scale.y += speed
+      }
+      if (direction === "down") {
+        circle.scale.x -= speed
+        circle.scale.y -= speed
+      }
     }
   })
 

@@ -29,17 +29,21 @@ function Scene() {
   const rectAreaLightRef = useRef(null)
   useEffect(() => {
     const light = rectAreaLightRef.current
-    light.lookAt(new Vector3())
-    const rectAreaLightHelper = new RectAreaLightHelper(light)
-    light.add(rectAreaLightHelper)
+    if (light) {
+      light.lookAt(new Vector3())
+      const rectAreaLightHelper = new RectAreaLightHelper(light)
+      light.add(rectAreaLightHelper)
+    }
   })
 
   const spotLightRef = useRef(null)
   useEffect(() => {
     const light = spotLightRef.current
-    const spotLightTarget = light.target
-    spotLightTarget.position.x = 0.5
-    scene.add(spotLightTarget)
+    if (light) {
+      const spotLightTarget = light.target
+      spotLightTarget.position.x = 0.5
+      scene.add(spotLightTarget)
+    }
   })
   useHelper(spotLightRef, SpotLightHelper)
 
@@ -51,14 +55,19 @@ function Scene() {
   const torusRef = useRef(null)
   useFrame((state) => {
     const elapsedTime = state.clock.getElapsedTime()
+    const sphere = sphereRef.current
+    const cube = cubeRef.current
+    const torus = torusRef.current
 
-    sphereRef.current.rotation.y = 0.1 * elapsedTime
-    cubeRef.current.rotation.y = 0.2 * elapsedTime
-    torusRef.current.rotation.y = 0.3 * elapsedTime
+    if (sphere && cube && torus) {
+      sphere.rotation.y = 0.1 * elapsedTime
+      cube.rotation.y = 0.2 * elapsedTime
+      torus.rotation.y = 0.3 * elapsedTime
 
-    sphereRef.current.rotation.x = 0.2 * elapsedTime
-    cubeRef.current.rotation.x = 0.15 * elapsedTime
-    torusRef.current.rotation.x = 0.1 * elapsedTime
+      sphere.rotation.x = 0.2 * elapsedTime
+      cube.rotation.x = 0.15 * elapsedTime
+      torus.rotation.x = 0.1 * elapsedTime
+    }
   })
 
   return (

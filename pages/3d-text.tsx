@@ -15,16 +15,23 @@ import { useControls } from "leva"
 function Scene() {
   const { matCapTextureFile } = useControls({
     matCapTextureFile: {
-      value: 1,
-      min: 1,
-      max: 8,
-      step: 1,
+      value: "8.png",
+      options: {
+        "1.png": "1.png",
+        "2.png": "2.png",
+        "3.png": "3.png",
+        "4.png": "4.png",
+        "5.png": "5.png",
+        "6.png": "6.png",
+        "7.png": "7.png",
+        "8.png": "8.png",
+      },
     },
   })
 
   const matCapTexture = useLoader(
     TextureLoader,
-    `/textures/matcaps/${matCapTextureFile}.png`
+    `/textures/matcaps/${matCapTextureFile}`
   )
   const material = useMemo(
     () => new MeshMatcapMaterial({ matcap: matCapTexture }),
@@ -54,7 +61,8 @@ function Scene() {
 
   const textRef = useRef(null)
   useEffect(() => {
-    textRef.current.center()
+    const text = textRef.current
+    if (text) text.center()
   })
   const text = (
     <mesh>

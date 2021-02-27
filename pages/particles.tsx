@@ -15,16 +15,28 @@ import { useControls } from "leva"
 function Scene() {
   const { particle_style } = useControls({
     particle_style: {
-      value: 1,
-      min: 1,
-      max: 13,
-      step: 1,
+      value: "8.png",
+      options: {
+        "1.png": "1.png",
+        "2.png": "2.png",
+        "3.png": "3.png",
+        "4.png": "4.png",
+        "5.png": "5.png",
+        "6.png": "6.png",
+        "7.png": "7.png",
+        "8.png": "8.png",
+        "9.png": "9.png",
+        "10.png": "10.png",
+        "11.png": "11.png",
+        "12.png": "12.png",
+        "13.png": "13.png",
+      },
     },
   })
 
   const particleTexture = useLoader(
     TextureLoader,
-    `/textures/particles/${particle_style}.png`
+    `/textures/particles/${particle_style}`
   )
 
   const count = 15000
@@ -43,12 +55,14 @@ function Scene() {
   useFrame((state) => {
     const elapsedTime = state.clock.getElapsedTime()
     const particlesGeometry = particlesGeomRef.current
-    const geomPos = particlesGeometry.attributes.position
-    for (let i = 0; i < count; i++) {
-      const x = geomPos.getX(i)
-      geomPos.setY(i, Math.tan(elapsedTime + x))
+    if (particlesGeometry) {
+      const geomPos = particlesGeometry.attributes.position
+      for (let i = 0; i < count; i++) {
+        const x = geomPos.getX(i)
+        geomPos.setY(i, Math.tan(elapsedTime + x))
+      }
+      geomPos.needsUpdate = true
     }
-    geomPos.needsUpdate = true
   })
 
   return (

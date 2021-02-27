@@ -7,7 +7,7 @@ import { OrbitControls } from "@react-three/drei"
 import { Texts } from "../components/Texts"
 
 function ClickableBox(props: MeshProps) {
-  const mesh = useRef<Mesh>()
+  const meshRef = useRef<Mesh>()
 
   const [hovered, setHover] = useState(false)
   const [active, setActive] = useState(false)
@@ -22,13 +22,14 @@ function ClickableBox(props: MeshProps) {
   })
 
   useFrame(() => {
-    mesh.current.rotation.x = mesh.current.rotation.y += 0.01
+    const mesh = meshRef.current
+    if (mesh) mesh.rotation.x = mesh.rotation.y += 0.01
   })
 
   return (
     <mesh
       {...props}
-      ref={mesh}
+      ref={meshRef}
       scale={active ? [1, 1, 1] : [0.5, 0.5, 0.5]}
       onClick={() => setActive(!active)}
       onPointerOver={() => setHover(true)}

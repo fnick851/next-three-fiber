@@ -79,15 +79,15 @@ function Scene() {
     const sphere = sphereRef.current
     const sphereShadow = sphereShadowRef.current
 
-    // Update the sphere
-    sphere.position.x = Math.cos(elapsedTime) * 1.5
-    sphere.position.z = Math.sin(elapsedTime) * 1.5
-    sphere.position.y = Math.abs(Math.sin(elapsedTime * 3))
+    if (sphere && sphereShadow) {
+      sphere.position.x = Math.cos(elapsedTime) * 1.5
+      sphere.position.z = Math.sin(elapsedTime) * 1.5
+      sphere.position.y = Math.abs(Math.sin(elapsedTime * 3))
 
-    // Update the shadow
-    sphereShadow.position.x = sphere.position.x
-    sphereShadow.position.z = sphere.position.z
-    sphereShadow.material.opacity = (1 - Math.abs(sphere.position.y)) * 0.3
+      sphereShadow.position.x = sphere.position.x
+      sphereShadow.position.z = sphere.position.z
+      sphereShadow.material.opacity = (1 - Math.abs(sphere.position.y)) * 0.3
+    }
   })
 
   const planePosY = -0.5
