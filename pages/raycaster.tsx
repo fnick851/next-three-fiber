@@ -68,7 +68,7 @@ export default function Raycaster() {
         <title>Raycaster</title>
       </Head>
 
-      <Canvas className="bg-black" shadowMap={true}>
+      <Canvas className="bg-black">
         <Scene />
       </Canvas>
     </Layout>
