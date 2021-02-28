@@ -1,10 +1,11 @@
 import Head from "next/head"
-import { useEffect, useRef, useState } from "react"
+import { useRef, useState } from "react"
 import { Canvas, MeshProps, useFrame } from "react-three-fiber"
 import { Mesh } from "three"
 import { Layout } from "../components/Layout"
 import { OrbitControls } from "@react-three/drei"
 import { Texts } from "../components/Texts"
+import { useBodyPointerCursor } from "../hooks/useBodyPointerCursor"
 
 function ClickableBox(props: MeshProps) {
   const meshRef = useRef<Mesh>()
@@ -12,14 +13,7 @@ function ClickableBox(props: MeshProps) {
   const [hovered, setHover] = useState(false)
   const [active, setActive] = useState(false)
 
-  useEffect(() => {
-    const body = document.body
-    if (hovered) {
-      body.style.cursor = "pointer"
-    } else {
-      body.style.cursor = "default"
-    }
-  })
+  useBodyPointerCursor(hovered)
 
   useFrame(() => {
     const mesh = meshRef.current
