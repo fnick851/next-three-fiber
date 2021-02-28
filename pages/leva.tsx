@@ -27,10 +27,7 @@ function Scene() {
       <Texts position={[-1, 0.5, 0.5]}>
         <p>{text}</p>
       </Texts>
-      {
-        //@ts-ignore
-        <OrbitControls />
-      }
+      <OrbitControls />
     </>
   )
 }

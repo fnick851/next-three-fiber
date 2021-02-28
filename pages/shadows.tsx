@@ -144,10 +144,7 @@ export default function Shadows() {
         <Suspense fallback={<LoadingScene />}>
           <Scene />
         </Suspense>
-        {
-          //@ts-ignore
-          <OrbitControls />
-        }
+        <OrbitControls />
       </Canvas>
     </Layout>
   )

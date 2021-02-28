@@ -129,10 +129,7 @@ export default function Lights() {
 
       <Canvas className="bg-black">
         <Scene />
-        {
-          //@ts-ignore
-          <OrbitControls />
-        }
+        <OrbitControls />
       </Canvas>
     </Layout>
   )

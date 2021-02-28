@@ -95,10 +95,7 @@ export default function Materials() {
         <Scene />
         <ambientLight color={0xffffff} intensity={0.5} />
         <pointLight color={0xffffff} intensity={0.5} position={[2, 3, 4]} />
-        {
-          //@ts-ignore
-          <OrbitControls />
-        }
+        <OrbitControls />
       </Canvas>
     </Layout>
   )

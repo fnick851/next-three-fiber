@@ -67,10 +67,7 @@ function Scene() {
         color={spot_light_color}
         intensity={spot_light_intensity}
       />
-      {
-        //@ts-ignore
-        <OrbitControls />
-      }
+      <OrbitControls />
     </>
   )
 }

@@ -26,10 +26,7 @@ function Scene() {
         <bufferGeometry ref={ref} />
         <meshBasicMaterial color={0xff0000} wireframe={true} />
       </mesh>
-      {
-        //@ts-ignore
-        <OrbitControls />
-      }
+      <OrbitControls />
     </>
   )
 }

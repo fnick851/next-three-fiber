@@ -66,21 +66,19 @@ function Scene() {
   })
 
   return (
-    <>
-      <points>
-        <bufferGeometry ref={particlesGeomRef} />
-        <pointsMaterial
-          size={0.1}
-          sizeAttenuation={true}
-          color={"#ff88cc"}
-          transparent={true}
-          alphaMap={particleTexture}
-          depthWrite={false}
-          blending={AdditiveBlending}
-          vertexColors={true}
-        />
-      </points>
-    </>
+    <points>
+      <bufferGeometry ref={particlesGeomRef} />
+      <pointsMaterial
+        size={0.1}
+        sizeAttenuation={true}
+        color={"#ff88cc"}
+        transparent={true}
+        alphaMap={particleTexture}
+        depthWrite={false}
+        blending={AdditiveBlending}
+        vertexColors={true}
+      />
+    </points>
   )
 }
 
@@ -95,10 +93,7 @@ export default function Particles() {
         <Suspense fallback={<LoadingScene />}>
           <Scene />
         </Suspense>
-        {
-          //@ts-ignore
-          <OrbitControls />
-        }
+        <OrbitControls />
       </Canvas>
     </Layout>
   )

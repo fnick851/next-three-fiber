@@ -26,10 +26,7 @@ export default function FullScreen() {
             <p>on desktop,</p>
             <p>double-click to go full screen.</p>
           </Texts>
-          {
-            //@ts-ignore
-            <OrbitControls />
-          }
+          <OrbitControls />
         </Canvas>
       </div>
     </Layout>
