@@ -43,7 +43,7 @@ export default function Home() {
       </Head>
 
       <Canvas className="bg-black">
-        <Texts position={[-2, 3, 0]}>
+        <Texts position={[-1, 2, 0]}>
           <p>welcome :)</p>
           <br />
           <p>click upper left corner to open menu.</p>
