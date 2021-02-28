@@ -30,8 +30,6 @@ function Scene() {
       max: 0.1,
       step: 0.001,
     },
-    inside_color: "#00b2ff",
-    outside_color: "#ff0000",
     galaxy_radius: {
       value: 5,
       min: 1,
@@ -62,6 +60,8 @@ function Scene() {
       max: 2,
       step: 0.01,
     },
+    inside_color: "#00b2ff",
+    outside_color: "#ff0000",
   })
 
   const geomRef = useRef(null)
