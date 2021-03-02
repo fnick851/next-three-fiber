@@ -44,8 +44,8 @@ function Ball(props) {
     <mesh ref={ref} receiveShadow={true} castShadow={true}>
       <sphereGeometry args={[1, 20, 20]} />
       <meshStandardMaterial
-        metalness={0.3}
-        roughness={0.4}
+        metalness={1}
+        roughness={0}
         envMap={environmentMapTexture}
       />
     </mesh>
@@ -67,8 +67,8 @@ function Box(props) {
     <mesh ref={ref} receiveShadow={true} castShadow={true}>
       <boxGeometry args={[1, 1, 1]} />
       <meshStandardMaterial
-        metalness={0.3}
-        roughness={0.4}
+        metalness={1}
+        roughness={0}
         envMap={environmentMapTexture}
       />
     </mesh>
@@ -80,13 +80,7 @@ function Floor(props) {
   return (
     <mesh ref={ref} receiveShadow={true}>
       <planeGeometry args={[10, 10]} />
-      <meshStandardMaterial
-        side={DoubleSide}
-        color={"#777777"}
-        metalness={0.3}
-        roughness={0.4}
-        envMap={environmentMapTexture}
-      />
+      <meshStandardMaterial side={DoubleSide} color={"#777777"} />
     </mesh>
   )
 }
