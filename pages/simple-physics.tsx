@@ -4,7 +4,7 @@ import { Layout } from "../components/Layout"
 import { OrbitControls } from "@react-three/drei"
 import { CubeTextureLoader, DoubleSide } from "three"
 import { Physics, usePlane, useBox, useSphere } from "@react-three/cannon"
-import { useEffect, useRef, useState } from "react"
+import { useState } from "react"
 
 let environmentMapTexture
 let playHitSound
@@ -110,19 +110,6 @@ function Scene({ nBox, nBall }) {
 }
 
 export default function SimplePhysics() {
-  const directionalLightRef = useRef(null)
-  useEffect(() => {
-    const directionalLight = directionalLightRef.current
-    if (directionalLight) {
-      directionalLight.shadow.mapSize.set(1024, 1024)
-      directionalLight.shadow.camera.far = 15
-      directionalLight.shadow.camera.left = -7
-      directionalLight.shadow.camera.top = 7
-      directionalLight.shadow.camera.right = 7
-      directionalLight.shadow.camera.bottom = -7
-    }
-  })
-
   const [nBox, setNBox] = useState(1)
   const [nBall, setNBall] = useState(0)
 
@@ -140,11 +127,12 @@ export default function SimplePhysics() {
         <Scene nBall={nBall} nBox={nBox} />
         <axesHelper />
         <ambientLight args={["hotpink", 0.5]} />
-        <directionalLight
-          ref={directionalLightRef}
-          intensity={0.5}
+        <spotLight
+          position={[10, 10, 10]}
+          angle={0.3}
+          penumbra={1}
+          intensity={1}
           castShadow={true}
-          position={[3, 3, -3]}
         />
         <OrbitControls />
       </Canvas>
