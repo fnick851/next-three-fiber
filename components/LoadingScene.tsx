@@ -1,5 +1,3 @@
-import { useRef } from "react"
-import { useFrame } from "react-three-fiber"
 import { Html } from "@react-three/drei"
 
 export function LoadingScene() {
