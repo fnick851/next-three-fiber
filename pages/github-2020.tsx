@@ -1,7 +1,7 @@
 import Head from "next/head"
 import { Canvas } from "react-three-fiber"
 import { Layout } from "../components/Layout"
-import { useControls } from "leva"
+import { useControls, Leva } from "leva"
 import { useFrame } from "react-three-fiber"
 import { Suspense, useRef } from "react"
 import { useGLTF } from "@react-three/drei"
@@ -79,6 +79,7 @@ export default function Github2020() {
         <title>Github 2020</title>
       </Head>
 
+      <Leva oneLineLabels={true} />
       <Canvas className="bg-black">
         <Suspense fallback={<LoadingScene />}>
           <Scene />

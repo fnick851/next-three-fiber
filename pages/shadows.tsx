@@ -2,7 +2,7 @@ import Head from "next/head"
 import { Canvas, useFrame, useLoader, useThree } from "react-three-fiber"
 import { Layout } from "../components/Layout"
 import { OrbitControls, useHelper } from "@react-three/drei"
-import { useControls } from "leva"
+import { useControls, Leva } from "leva"
 import { CameraHelper, SpotLightHelper, TextureLoader } from "three"
 import { Suspense, useEffect, useRef } from "react"
 import { LoadingScene } from "../components/LoadingScene"
@@ -140,6 +140,7 @@ export default function Shadows() {
         <title>Shadows</title>
       </Head>
 
+      <Leva oneLineLabels={true} />
       <Canvas shadowMap={true} className="bg-black">
         <Suspense fallback={<LoadingScene />}>
           <Scene />

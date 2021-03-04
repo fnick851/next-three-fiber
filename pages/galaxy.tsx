@@ -2,7 +2,7 @@ import Head from "next/head"
 import { Canvas } from "react-three-fiber"
 import { Layout } from "../components/Layout"
 import { OrbitControls } from "@react-three/drei"
-import { useControls } from "leva"
+import { useControls, Leva } from "leva"
 import { useEffect, useRef } from "react"
 import { AdditiveBlending, BufferAttribute, Color } from "three"
 
@@ -139,6 +139,7 @@ export default function Galaxy() {
         <title>Galaxy</title>
       </Head>
 
+      <Leva oneLineLabels={true} />
       <Canvas className="bg-black">
         <Scene />
         <OrbitControls />

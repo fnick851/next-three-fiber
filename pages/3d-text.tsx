@@ -10,7 +10,7 @@ import {
 } from "three"
 import { OrbitControls } from "@react-three/drei"
 import { LoadingScene } from "../components/LoadingScene"
-import { useControls } from "leva"
+import { useControls, Leva } from "leva"
 
 function Scene() {
   const { matCapTextureFile } = useControls({
@@ -103,6 +103,7 @@ export default function ThreeDText() {
         <title>3D Text</title>
       </Head>
 
+      <Leva oneLineLabels={true} />
       <Canvas className="bg-black">
         <Suspense fallback={<LoadingScene />}>
           <Scene />
