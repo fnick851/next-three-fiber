@@ -2,7 +2,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "up": "npx npm-check-updates -u"
   },
   "dependencies": {
     "@react-three/cannon": "^0.6.0",
@@ -12,8 +13,8 @@
     "@types/three": "^0.126.0",
     "autoprefixer": "^10.2.5",
     "gsap": "^3.6.0",
-    "leva": "^0.4.4",
-    "next": "^10.0.7",
+    "leva": "^0.4.5",
+    "next": "^10.0.8",
     "next-transpile-modules": "^6.3.0",
     "postcss": "^8.2.7",
     "postcss-flexbugs-fixes": "^5.0.2",

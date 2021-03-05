@@ -19,8 +19,6 @@ export default function ShaderPatterns() {
     monochromic: { value: false, render: (get) => get("pattern") > 1 },
   })
 
-  const ref = useRef(null)
-
   const frag = fragmentShader(pattern, monochromic)
   const material = new ShaderMaterial({
     vertexShader: vertexShader,
@@ -28,6 +26,7 @@ export default function ShaderPatterns() {
     side: DoubleSide,
   })
 
+  const ref = useRef(null)
   useEffect(() => {
     const plane = ref.current
     if (plane) {
@@ -42,12 +41,7 @@ export default function ShaderPatterns() {
       </Head>
 
       <Canvas className="bg-black">
-        <mesh ref={ref}>
-          <shaderMaterial
-            vertexShader={vertexShader}
-            fragmentShader={fragmentShader(0, false)}
-            side={DoubleSide}
-          />
+        <mesh ref={ref} material={material}>
           <planeGeometry args={[5, 5, 32, 32]} />
         </mesh>
         <OrbitControls />
