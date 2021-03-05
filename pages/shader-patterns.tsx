@@ -46,6 +46,7 @@ export default function ShaderPatterns() {
           <shaderMaterial
             vertexShader={vertexShader}
             fragmentShader={fragmentShader(0, false)}
+            side={DoubleSide}
           />
           <planeGeometry args={[5, 5, 32, 32]} />
         </mesh>
