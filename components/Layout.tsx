@@ -10,7 +10,7 @@ export function Layout({ children }) {
     { link: "/shader-patterns", name: "Shader Patterns" },
     { link: "/shader-flag", name: "Shader Flag" },
     { link: "/realistic-helmet", name: "Realistic Helmet" },
-    { link: "/import-model", name: "Import Model" },
+    { link: "/fox-model", name: "Fox Model" },
     { link: "/simple-physics", name: "Simple Physics" },
     { link: "/raycaster", name: "Raycaster" },
     { link: "/galaxy", name: "Galaxy" },

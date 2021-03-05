@@ -49,11 +49,11 @@ function Scene() {
   )
 }
 
-export default function ImportModel() {
+export default function FoxModel() {
   return (
     <Layout>
       <Head>
-        <title>Import Model</title>
+        <title>Fox Model</title>
       </Head>
 
       <Canvas
