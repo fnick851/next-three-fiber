@@ -3,7 +3,6 @@ import { Canvas } from "react-three-fiber"
 import { Layout } from "../components/Layout"
 import { OrbitControls } from "@react-three/drei"
 import { DoubleSide, ShaderMaterial } from "three"
-import { useEffect, useRef } from "react"
 import { vertexShader } from "../components/shader-patterns/vertex.glsl"
 import { fragmentShader } from "../components/shader-patterns/fragment.glsl"
 import { useControls } from "leva"
@@ -21,17 +20,9 @@ export default function ShaderPatterns() {
 
   const frag = fragmentShader(pattern, monochromic)
   const material = new ShaderMaterial({
-    vertexShader: vertexShader,
+    vertexShader,
     fragmentShader: frag,
     side: DoubleSide,
-  })
-
-  const ref = useRef(null)
-  useEffect(() => {
-    const plane = ref.current
-    if (plane) {
-      plane.material = material
-    }
   })
 
   return (
@@ -41,7 +32,7 @@ export default function ShaderPatterns() {
       </Head>
 
       <Canvas className="bg-black">
-        <mesh ref={ref} material={material}>
+        <mesh material={material}>
           <planeGeometry args={[5, 5, 32, 32]} />
         </mesh>
         <OrbitControls />

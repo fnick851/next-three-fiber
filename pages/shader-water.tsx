@@ -3,7 +3,6 @@ import { Canvas, useFrame } from "react-three-fiber"
 import { Layout } from "../components/Layout"
 import { OrbitControls } from "@react-three/drei"
 import { Color, DoubleSide, ShaderMaterial, Vector2 } from "three"
-import { useEffect, useRef } from "react"
 import { useControls, Leva } from "leva"
 import { vertexShader } from "../components/shader-water/vertex.glsl"
 import { fragmentShader } from "../components/shader-water/fragment.glsl"
@@ -47,8 +46,8 @@ function Scene() {
   })
 
   const material = new ShaderMaterial({
-    vertexShader: vertexShader,
-    fragmentShader: fragmentShader,
+    vertexShader,
+    fragmentShader,
     side: DoubleSide,
     uniforms: {
       uTime: { value: 0 },
@@ -71,21 +70,13 @@ function Scene() {
     },
   })
 
-  const ref = useRef(null)
-  useEffect(() => {
-    const plane = ref.current
-    if (plane) {
-      plane.material = material
-    }
-  })
-
   useFrame((state) => {
     const elapsedTime = state.clock.getElapsedTime()
     material.uniforms.uTime.value = elapsedTime
   })
 
   return (
-    <mesh ref={ref} material={material} rotation={[-Math.PI * 0.5, 0, 0]}>
+    <mesh material={material} rotation={[-Math.PI * 0.5, 0, 0]}>
       <planeGeometry args={[3, 3, 512, 512]} />
     </mesh>
   )
