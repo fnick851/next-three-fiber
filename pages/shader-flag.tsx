@@ -1,5 +1,5 @@
 import Head from "next/head"
-import { Canvas, useFrame, useLoader, useResource } from "react-three-fiber"
+import { Canvas, useFrame, useLoader } from "react-three-fiber"
 import { Layout } from "../components/Layout"
 import { OrbitControls } from "@react-three/drei"
 import {
@@ -58,7 +58,13 @@ const fragmentShader = /*glsl*/ `
 function Scene() {
   const flagTexture = useLoader(TextureLoader, "/textures/flag-mgs.jpg")
 
-  const geometry = new PlaneGeometry(1.92, 1.08, 100, 100)
+  const sizeFactor = 2
+  const geometry = new PlaneGeometry(
+    1.92 * sizeFactor,
+    1.08 * sizeFactor,
+    64,
+    64
+  )
   const count = geometry.attributes.position.count
   const randoms = new Float32Array(count)
   for (let i = 0; i < count; i++) {
@@ -67,32 +73,25 @@ function Scene() {
   geometry.setAttribute("aRandom", new BufferAttribute(randoms, 1))
 
   const uniforms = {
-    uFrequency: { value: new Vector2(5, 5) },
+    uFrequency: { value: new Vector2(2, 2) },
     uTime: { value: 0 },
     uColor: { value: new Color("orange") },
     uTexture: { value: flagTexture },
   }
 
-  const shaderMaterialRef = useResource()
-  useFrame((state) => {
-    const elapsedTime = state.clock.getElapsedTime()
-    const material = shaderMaterialRef.current as ShaderMaterial
-    if (material) {
-      material.uniforms.uTime.value = elapsedTime
-    }
+  const material = new ShaderMaterial({
+    vertexShader: vertexShader,
+    fragmentShader: fragmentShader,
+    side: DoubleSide,
+    uniforms,
   })
 
-  return (
-    <mesh geometry={geometry}>
-      <shaderMaterial
-        side={DoubleSide}
-        ref={shaderMaterialRef}
-        uniforms={uniforms}
-        vertexShader={vertexShader}
-        fragmentShader={fragmentShader}
-      />
-    </mesh>
-  )
+  useFrame((state) => {
+    const elapsedTime = state.clock.getElapsedTime()
+    material.uniforms.uTime.value = elapsedTime
+  })
+
+  return <mesh geometry={geometry} material={material} />
 }
 
 export default function ShaderFlag() {
@@ -102,7 +101,7 @@ export default function ShaderFlag() {
         <title>Shader Flag</title>
       </Head>
 
-      <Canvas className="bg-black">
+      <Canvas className="bg-black" camera={{ position: [1, 0, 2] }}>
         <Suspense fallback={<LoadingScene />}>
           <Scene />
         </Suspense>
