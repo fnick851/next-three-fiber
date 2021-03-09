@@ -80,6 +80,19 @@ export function PostEffects() {
   const { size } = useThree()
 
   const effectRef = useRef(null)
+  function usePass(pass, watchPass: boolean) {
+    useEffect(
+      () => {
+        if (effectRef.current) {
+          effectRef.current.addPass(pass)
+        }
+        return () => {
+          effectRef.current.removePass(pass)
+        }
+      },
+      watchPass ? [pass] : []
+    )
+  }
 
   // Glitch pass
   const glitchPass = useMemo(() => {
@@ -88,14 +101,7 @@ export function PostEffects() {
     glitchPass.enabled = enable_glitchPass
     return glitchPass
   }, [enable_glitchPass, glitch_goes_wild])
-  useEffect(() => {
-    if (effectRef.current) {
-      effectRef.current.addPass(glitchPass)
-    }
-    return () => {
-      effectRef.current.removePass(glitchPass)
-    }
-  }, [glitchPass])
+  usePass(glitchPass, true)
 
   // Dot screen pass
   const dotScreenPass = useMemo(() => {
@@ -103,14 +109,7 @@ export function PostEffects() {
     dotScreenPass.enabled = enable_dotScreenPass
     return dotScreenPass
   }, [enable_dotScreenPass])
-  useEffect(() => {
-    if (effectRef.current) {
-      effectRef.current.addPass(dotScreenPass)
-    }
-    return () => {
-      effectRef.current.removePass(dotScreenPass)
-    }
-  }, [dotScreenPass])
+  usePass(dotScreenPass, true)
 
   // RGB Shift pass
   const rgbShiftPass = useMemo(() => {
@@ -118,14 +117,7 @@ export function PostEffects() {
     rgbShiftPass.enabled = enable_rgbShiftPass
     return rgbShiftPass
   }, [enable_rgbShiftPass])
-  useEffect(() => {
-    if (effectRef.current) {
-      effectRef.current.addPass(rgbShiftPass)
-    }
-    return () => {
-      effectRef.current.removePass(rgbShiftPass)
-    }
-  }, [rgbShiftPass])
+  usePass(rgbShiftPass, true)
 
   // Unreal Bloom pass
   const unrealBloomPass = useMemo(() => {
@@ -143,14 +135,7 @@ export function PostEffects() {
     unrealBloom_radius,
     unrealBloom_threshold,
   ])
-  useEffect(() => {
-    if (effectRef.current) {
-      effectRef.current.addPass(unrealBloomPass)
-    }
-    return () => {
-      effectRef.current.removePass(unrealBloomPass)
-    }
-  }, [unrealBloomPass])
+  usePass(unrealBloomPass, true)
 
   // Tint pass
   const tintPass = useMemo(() => {
@@ -170,14 +155,7 @@ export function PostEffects() {
     )
     return tintPass
   }, [red_tint, green_tint, blue_tint])
-  useEffect(() => {
-    if (effectRef.current) {
-      effectRef.current.addPass(tintPass)
-    }
-    return () => {
-      effectRef.current.removePass(tintPass)
-    }
-  }, [tintPass])
+  usePass(tintPass, true)
 
   // Displacement pass
   const DisplacementShader = {
@@ -193,19 +171,11 @@ export function PostEffects() {
     TextureLoader,
     "/textures/interfaceNormalMap.png"
   )
-  useEffect(() => {
-    if (effectRef.current) {
-      effectRef.current.addPass(displacementPass)
-    }
-  }, [])
+  usePass(displacementPass, false)
 
   // Antialias pass
   const smaaPass = new SMAAPass(size.width, size.height)
-  useEffect(() => {
-    if (effectRef.current) {
-      effectRef.current.addPass(smaaPass)
-    }
-  }, [])
+  usePass(smaaPass, false)
 
   return <Effects ref={effectRef} />
 }
