@@ -30,7 +30,10 @@ export function PostEffects() {
   } = useControls({
     enable_dotScreenPass: false,
     enable_glitchPass: false,
-    glitch_goes_wild: false,
+    glitch_goes_wild: {
+      value: false,
+      render: (get) => get("enable_glitchPass"),
+    },
     enable_rgbShiftPass: false,
     enable_unrealBloomPass: false,
     unrealBloom_strength: {
@@ -38,18 +41,21 @@ export function PostEffects() {
       min: 0,
       max: 2,
       step: 0.01,
+      render: (get) => get("enable_unrealBloomPass"),
     },
     unrealBloom_radius: {
       value: 1,
       min: 0,
       max: 2,
       step: 0.01,
+      render: (get) => get("enable_unrealBloomPass"),
     },
     unrealBloom_threshold: {
       value: 0.6,
       min: 0,
       max: 1,
       step: 0.001,
+      render: (get) => get("enable_unrealBloomPass"),
     },
     red_tint: {
       value: 0,
