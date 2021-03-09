@@ -21,49 +21,49 @@ export function PostEffects() {
     glitch_goes_wild,
     enable_rgbShiftPass,
     enable_unrealBloomPass,
-    strength,
-    radius,
-    threshold,
-    red,
-    green,
-    blue,
+    unrealBloom_strength,
+    unrealBloom_radius,
+    unrealBloom_threshold,
+    red_tint,
+    green_tint,
+    blue_tint,
   } = useControls({
     enable_dotScreenPass: false,
     enable_glitchPass: false,
     glitch_goes_wild: false,
     enable_rgbShiftPass: false,
     enable_unrealBloomPass: false,
-    strength: {
+    unrealBloom_strength: {
       value: 0.3,
       min: 0,
       max: 2,
       step: 0.01,
     },
-    radius: {
+    unrealBloom_radius: {
       value: 1,
       min: 0,
       max: 2,
       step: 0.01,
     },
-    threshold: {
+    unrealBloom_threshold: {
       value: 0.6,
       min: 0,
       max: 1,
       step: 0.001,
     },
-    red: {
+    red_tint: {
       value: 0,
       min: -1,
       max: 1,
       step: 0.01,
     },
-    green: {
+    green_tint: {
       value: 0,
       min: -1,
       max: 1,
       step: 0.01,
     },
-    blue: {
+    blue_tint: {
       value: 0,
       min: -1,
       max: 1,
@@ -125,13 +125,18 @@ export function PostEffects() {
   const unrealBloomPass = useMemo(() => {
     const unrealBloomPass = new UnrealBloomPass(
       new Vector2(512, 512),
-      strength,
-      radius,
-      threshold
+      unrealBloom_strength,
+      unrealBloom_radius,
+      unrealBloom_threshold
     )
     unrealBloomPass.enabled = enable_unrealBloomPass
     return unrealBloomPass
-  }, [enable_unrealBloomPass, strength, radius, threshold])
+  }, [
+    enable_unrealBloomPass,
+    unrealBloom_strength,
+    unrealBloom_radius,
+    unrealBloom_threshold,
+  ])
   useEffect(() => {
     if (effectRef.current) {
       effectRef.current.addPass(unrealBloomPass)
@@ -152,9 +157,13 @@ export function PostEffects() {
       fragmentShader: tintFragmentShader,
     }
     const tintPass = new ShaderPass(TintShader)
-    tintPass.material.uniforms.uTint.value = new Vector3(red, green, blue)
+    tintPass.material.uniforms.uTint.value = new Vector3(
+      red_tint,
+      green_tint,
+      blue_tint
+    )
     return tintPass
-  }, [red, green, blue])
+  }, [red_tint, green_tint, blue_tint])
   useEffect(() => {
     if (effectRef.current) {
       effectRef.current.addPass(tintPass)
