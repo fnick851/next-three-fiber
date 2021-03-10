@@ -83,11 +83,9 @@ export function PostEffects() {
   function usePass(pass, watchPass: boolean) {
     useEffect(
       () => {
-        if (effectRef.current) {
-          effectRef.current.addPass(pass)
-        }
+        if (effectRef.current) effectRef.current.addPass(pass)
         return () => {
-          effectRef.current.removePass(pass)
+          if (effectRef.current) effectRef.current.removePass(pass)
         }
       },
       watchPass ? [pass] : []
