@@ -79,7 +79,6 @@ function Scene() {
       <Stats showPanel={2} parent={node} />
       {turn_on_standard_objects ? (
         <>
-          {" "}
           <mesh castShadow receiveShadow position={[-5, 0, 0]}>
             <boxGeometry args={[2, 2, 2]} />
             <meshStandardMaterial />
