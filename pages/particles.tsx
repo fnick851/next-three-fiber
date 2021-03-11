@@ -1,7 +1,7 @@
 import Head from "next/head"
 import { Canvas, useFrame, useLoader, useUpdate } from "react-three-fiber"
 import { Layout } from "../components/Layout"
-import { OrbitControls } from "@react-three/drei"
+import { OrbitControls, Loader } from "@react-three/drei"
 import {
   AdditiveBlending,
   BufferAttribute,
@@ -9,7 +9,6 @@ import {
   TextureLoader,
 } from "three"
 import { Suspense } from "react"
-import { LoadingScene } from "../components/LoadingScene"
 import { useControls } from "leva"
 
 function Scene() {
@@ -90,11 +89,12 @@ export default function Particles() {
       </Head>
 
       <Canvas className="bg-black">
-        <Suspense fallback={<LoadingScene />}>
+        <Suspense fallback={null}>
           <Scene />
         </Suspense>
         <OrbitControls />
       </Canvas>
+      <Loader />
     </Layout>
   )
 }
