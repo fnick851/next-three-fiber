@@ -3,8 +3,7 @@ import { Canvas, useLoader } from "react-three-fiber"
 import { Layout } from "../components/Layout"
 import { NearestFilter, TextureLoader } from "three"
 import { Suspense } from "react"
-import { LoadingScene } from "../components/LoadingScene"
-import { OrbitControls } from "@react-three/drei"
+import { OrbitControls, Loader } from "@react-three/drei"
 
 const textureImgs = [
   "/textures/minecraft.png",
@@ -42,10 +41,11 @@ export default function Textures() {
       </Head>
 
       <Canvas className="bg-black">
-        <Suspense fallback={<LoadingScene />}>
+        <Suspense fallback={null}>
           <Scene />
         </Suspense>
       </Canvas>
+      <Loader />
     </Layout>
   )
 }
