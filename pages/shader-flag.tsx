@@ -1,7 +1,7 @@
 import Head from "next/head"
 import { Canvas, useFrame, useLoader } from "react-three-fiber"
 import { Layout } from "../components/Layout"
-import { OrbitControls, Loader } from "@react-three/drei"
+import { OrbitControls } from "@react-three/drei"
 import {
   BufferAttribute,
   Color,
@@ -12,6 +12,7 @@ import {
   Vector2,
 } from "three"
 import { Suspense } from "react"
+import { LoadingScene } from "../components/LoadingScene"
 
 const vertexShader = /*glsl*/ `
   uniform vec2 uFrequency;
@@ -101,12 +102,11 @@ export default function ShaderFlag() {
       </Head>
 
       <Canvas className="bg-black" camera={{ position: [1, 0, 2] }}>
-        <Suspense fallback={null}>
+        <Suspense fallback={<LoadingScene />}>
           <Scene />
         </Suspense>
         <OrbitControls />
       </Canvas>
-      <Loader />
     </Layout>
   )
 }

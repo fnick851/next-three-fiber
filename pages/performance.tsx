@@ -1,8 +1,9 @@
 import Head from "next/head"
 import { Canvas, useLoader } from "react-three-fiber"
 import { Layout } from "../components/Layout"
-import { OrbitControls, Loader } from "@react-three/drei"
+import { OrbitControls } from "@react-three/drei"
 import { Suspense, useEffect, useRef } from "react"
+import { LoadingScene } from "../components/LoadingScene"
 import { DoubleSide, ShaderMaterial, TextureLoader } from "three"
 import { Stats } from "@react-three/drei"
 import { useControls, Leva } from "leva"
@@ -126,13 +127,12 @@ export default function Performance() {
 
       <Leva oneLineLabels={true} />
       <Canvas className="bg-black" camera={{ position: [2, 2, 6] }}>
-        <Suspense fallback={null}>
+        <Suspense fallback={<LoadingScene />}>
           <Scene />
         </Suspense>
         <ambientLight intensity={0.1} />
         <OrbitControls />
       </Canvas>
-      <Loader />
     </Layout>
   )
 }

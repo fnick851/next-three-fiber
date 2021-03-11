@@ -8,7 +8,8 @@ import {
   TextureLoader,
   TorusGeometry,
 } from "three"
-import { OrbitControls, Loader } from "@react-three/drei"
+import { OrbitControls } from "@react-three/drei"
+import { LoadingScene } from "../components/LoadingScene"
 import { useControls, Leva } from "leva"
 
 function Scene() {
@@ -104,11 +105,10 @@ export default function ThreeDText() {
 
       <Leva oneLineLabels={true} />
       <Canvas className="bg-black">
-        <Suspense fallback={null}>
+        <Suspense fallback={<LoadingScene />}>
           <Scene />
         </Suspense>
       </Canvas>
-      <Loader />
     </Layout>
   )
 }
