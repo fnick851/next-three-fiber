@@ -3,7 +3,7 @@ import { Canvas, useFrame, useLoader, useThree } from "react-three-fiber"
 import { Layout } from "../components/Layout"
 import { OrbitControls, useHelper } from "@react-three/drei"
 import { useControls, Leva } from "leva"
-import { CameraHelper, SpotLightHelper, TextureLoader } from "three"
+import { CameraHelper, DoubleSide, SpotLightHelper, TextureLoader } from "three"
 import { Suspense, useEffect, useRef } from "react"
 import { LoadingScene } from "../components/LoadingScene"
 
@@ -86,7 +86,7 @@ function Scene() {
 
       sphereShadow.position.x = sphere.position.x
       sphereShadow.position.z = sphere.position.z
-      sphereShadow.material.opacity = (1 - Math.abs(sphere.position.y)) * 0.3
+      sphereShadow.material.opacity = 1 - Math.abs(sphere.position.y)
     }
   })
 
@@ -97,17 +97,21 @@ function Scene() {
         <sphereGeometry args={[0.5, 32, 32]} />
         <meshStandardMaterial color={"orange"} roughness={0} metalness={0} />
       </mesh>
-      <mesh position={[0, planePosY, 0]} rotation={[-Math.PI * 0.5, 0, 0]}>
-        <planeGeometry args={[5, 5]} />
-        <meshStandardMaterial roughness={0} metalness={0} />
-      </mesh>
       <mesh
         ref={sphereShadowRef}
         rotation={[-Math.PI * 0.5, 0, 0]}
-        position={[0, planePosY + 0.01, 0]}
+        position={[0, planePosY + 0.001, 0]}
       >
         <planeGeometry args={[1.5, 1.5]} />
-        <meshBasicMaterial transparent={true} alphaMap={simpleShadow} />
+        <meshStandardMaterial
+          color={"black"}
+          transparent={true}
+          alphaMap={simpleShadow}
+        />
+      </mesh>
+      <mesh position={[0, planePosY, 0]} rotation={[-Math.PI * 0.5, 0, 0]}>
+        <planeGeometry args={[5, 5]} />
+        <meshStandardMaterial roughness={0} metalness={0} side={DoubleSide} />
       </mesh>
       <ambientLight args={[0xffffff]} intensity={ambient_intensity} />
       <directionalLight
