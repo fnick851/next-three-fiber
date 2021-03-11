@@ -158,9 +158,9 @@ export default function RealisticHelmet() {
       >
         <Suspense fallback={<LoadingScene />}>
           <Scene />
+          <ambientLight intensity={0.1} />
+          <OrbitControls />
         </Suspense>
-        <ambientLight intensity={0.1} />
-        <OrbitControls />
       </Canvas>
     </Layout>
   )

@@ -129,9 +129,9 @@ export default function Performance() {
       <Canvas className="bg-black" camera={{ position: [2, 2, 6] }}>
         <Suspense fallback={<LoadingScene />}>
           <Scene />
+          <ambientLight intensity={0.1} />
+          <OrbitControls />
         </Suspense>
-        <ambientLight intensity={0.1} />
-        <OrbitControls />
       </Canvas>
     </Layout>
   )

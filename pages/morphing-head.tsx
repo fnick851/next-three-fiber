@@ -190,8 +190,8 @@ export default function MorphingHead() {
       >
         <Suspense fallback={<LoadingScene />}>
           <Scene />
+          <OrbitControls />
         </Suspense>
-        <OrbitControls />
       </Canvas>
     </Layout>
   )

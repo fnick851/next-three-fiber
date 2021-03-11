@@ -92,8 +92,8 @@ export default function Particles() {
       <Canvas className="bg-black">
         <Suspense fallback={<LoadingScene />}>
           <Scene />
+          <OrbitControls />
         </Suspense>
-        <OrbitControls />
       </Canvas>
     </Layout>
   )

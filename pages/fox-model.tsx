@@ -63,10 +63,14 @@ export default function FoxModel() {
       >
         <Suspense fallback={<LoadingScene />}>
           <Scene />
+          <ambientLight intensity={0.1} />
+          <spotLight
+            castShadow={true}
+            position={[-1, 3.5, 1]}
+            intensity={0.4}
+          />
+          <OrbitControls />
         </Suspense>
-        <ambientLight intensity={0.1} />
-        <spotLight castShadow={true} position={[-1, 3.5, 1]} intensity={0.4} />
-        <OrbitControls />
       </Canvas>
     </Layout>
   )

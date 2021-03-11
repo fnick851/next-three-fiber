@@ -148,8 +148,8 @@ export default function Shadows() {
       <Canvas shadowMap={true} className="bg-black">
         <Suspense fallback={<LoadingScene />}>
           <Scene />
+          <OrbitControls />
         </Suspense>
-        <OrbitControls />
       </Canvas>
     </Layout>
   )

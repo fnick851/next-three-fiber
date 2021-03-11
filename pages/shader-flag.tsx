@@ -104,8 +104,8 @@ export default function ShaderFlag() {
       <Canvas className="bg-black" camera={{ position: [1, 0, 2] }}>
         <Suspense fallback={<LoadingScene />}>
           <Scene />
+          <OrbitControls />
         </Suspense>
-        <OrbitControls />
       </Canvas>
     </Layout>
   )

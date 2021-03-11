@@ -19,14 +19,14 @@ function Scene() {
 
   return (
     <>
-      <Lights />
-      <Graves />
-      <Ghosts />
       <Suspense fallback={<LoadingScene />}>
+        <Lights />
         <House />
+        <Ghosts />
+        <Graves />
         <Land />
+        <OrbitControls />
       </Suspense>
-      <OrbitControls />
     </>
   )
 }

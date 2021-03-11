@@ -24,8 +24,8 @@ export default function RealisticHelmet() {
         <Suspense fallback={<LoadingScene />}>
           <Scene />
           <PostEffects />
+          <OrbitControls />
         </Suspense>
-        <OrbitControls />
       </Canvas>
     </Layout>
   )
