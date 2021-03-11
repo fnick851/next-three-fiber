@@ -1,9 +1,8 @@
 import Head from "next/head"
 import { Canvas, useThree } from "react-three-fiber"
 import { Layout } from "../components/Layout"
-import { OrbitControls } from "@react-three/drei"
+import { OrbitControls, Loader } from "@react-three/drei"
 import { Suspense } from "react"
-import { LoadingScene } from "../components/LoadingScene"
 import { Graves } from "../components/ghost-house/Graves"
 import { Land } from "../components/ghost-house/Land"
 import { Lights } from "../components/ghost-house/Lights"
@@ -19,11 +18,11 @@ function Scene() {
 
   return (
     <>
-      <Lights />
-      <Graves />
-      <Ghosts />
-      <Suspense fallback={<LoadingScene />}>
+      <Suspense fallback={null}>
+        <Lights />
         <House />
+        <Ghosts />
+        <Graves />
         <Land />
       </Suspense>
       <OrbitControls />
@@ -45,6 +44,7 @@ export default function GhostHouse() {
       >
         <Scene />
       </Canvas>
+      <Loader />
     </Layout>
   )
 }
