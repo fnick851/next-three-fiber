@@ -1,8 +1,9 @@
 import Head from "next/head"
 import { Canvas, useFrame, useThree } from "react-three-fiber"
 import { Layout } from "../components/Layout"
-import { OrbitControls, useGLTF, Loader } from "@react-three/drei"
+import { OrbitControls, useGLTF } from "@react-three/drei"
 import { Suspense } from "react"
+import { LoadingScene } from "../components/LoadingScene"
 import { AnimationMixer, DoubleSide } from "three"
 import { useControls } from "leva"
 
@@ -60,14 +61,13 @@ export default function FoxModel() {
         shadowMap={true}
         camera={{ position: [5, 10, 5] }}
       >
-        <Suspense fallback={null}>
+        <Suspense fallback={<LoadingScene />}>
           <Scene />
         </Suspense>
         <ambientLight intensity={0.1} />
         <spotLight castShadow={true} position={[-1, 3.5, 1]} intensity={0.4} />
         <OrbitControls />
       </Canvas>
-      <Loader />
     </Layout>
   )
 }
