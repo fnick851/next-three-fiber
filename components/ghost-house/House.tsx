@@ -11,7 +11,7 @@ export function House() {
 
   return (
     <>
-      <group>
+      <group position={[0, 0.001, 0]}>
         <Walls />
         <Roof />
         <Door />
