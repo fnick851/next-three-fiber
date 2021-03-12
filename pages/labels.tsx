@@ -1,0 +1,153 @@
+import Head from "next/head"
+import { Canvas, useFrame, useThree } from "react-three-fiber"
+import { Layout } from "../components/Layout"
+import { OrbitControls, useGLTF } from "@react-three/drei"
+import { MutableRefObject, Suspense, useEffect, useRef } from "react"
+import {
+  CubeTextureLoader,
+  Raycaster,
+  ReinhardToneMapping,
+  sRGBEncoding,
+  Vector3,
+} from "three"
+
+function Scene(props: { labels: MutableRefObject<any>[] }) {
+  const { scene, gl: renderer, camera, size } = useThree()
+  renderer.physicallyCorrectLights = true
+  renderer.outputEncoding = sRGBEncoding
+  renderer.toneMappingExposure = 3
+  renderer.toneMapping = ReinhardToneMapping
+
+  const cubeTextureLoader = new CubeTextureLoader()
+  const environmentMap = cubeTextureLoader.load([
+    "/textures/environmentMaps/sky/nx.jpg",
+    "/textures/environmentMaps/sky/ny.jpg",
+    "/textures/environmentMaps/sky/nz.jpg",
+    "/textures/environmentMaps/sky/px.jpg",
+    "/textures/environmentMaps/sky/py.jpg",
+    "/textures/environmentMaps/sky/pz.jpg",
+  ])
+  environmentMap.encoding = sRGBEncoding
+  scene.background = environmentMap
+  scene.environment = environmentMap
+
+  const { scene: helmetModel } = useGLTF(
+    "/models/DamagedHelmet/glTF/DamagedHelmet.gltf"
+  )
+  helmetModel.scale.set(2.5, 2.5, 2.5)
+  helmetModel.rotation.y = Math.PI * 0.5
+  scene.add(helmetModel)
+
+  const directionalLightRef = useRef(null)
+  useEffect(() => {
+    const directionalLight = directionalLightRef.current
+    if (directionalLight) {
+      directionalLight.shadow.camera.far = 15
+      directionalLight.shadow.mapSize.set(1024, 1024)
+      directionalLight.shadow.normalBias = 0.05
+    }
+  })
+
+  const raycaster = new Raycaster()
+  let points = []
+  const { labels } = props
+  const [label1, label2, label3] = labels
+  if (label1.current && label1.current && label1.current) {
+    points = [
+      {
+        position: new Vector3(1.55, 0.3, -0.6),
+        element: label1.current,
+      },
+      {
+        position: new Vector3(0.5, 0.8, -1.6),
+        element: label2.current,
+      },
+      {
+        position: new Vector3(1.6, -1.3, -0.7),
+        element: label3.current,
+      },
+    ]
+  }
+
+  useFrame(() => {
+    for (const point of points) {
+      const screenPosition = point.position.clone()
+      screenPosition.project(camera)
+
+      raycaster.setFromCamera(screenPosition, camera)
+      const intersects = raycaster.intersectObjects(scene.children, true)
+
+      if (intersects.length === 0) {
+        point.element.classList.add("visible")
+      } else {
+        const intersectionDistance = intersects[0].distance
+        const pointDistance = point.position.distanceTo(camera.position)
+
+        if (intersectionDistance < pointDistance) {
+          point.element.classList.remove("visible")
+        } else {
+          point.element.classList.add("visible")
+        }
+      }
+
+      const translateX = screenPosition.x * size.width * 0.5
+      const translateY = -screenPosition.y * size.height * 0.5
+      point.element.style.transform = `translateX(${translateX}px) translateY(${translateY}px)`
+    }
+  })
+
+  return (
+    <>
+      <directionalLight
+        castShadow
+        position={[0.25, 3, -2.25]}
+        ref={directionalLightRef}
+      />
+      <OrbitControls />
+    </>
+  )
+}
+
+export default function Labels() {
+  const label1Ref = useRef(null)
+  const label2Ref = useRef(null)
+  const label3Ref = useRef(null)
+
+  return (
+    <Layout>
+      <Head>
+        <title>Labels</title>
+      </Head>
+
+      <Canvas
+        shadowMap={true}
+        className="bg-black"
+        camera={{ position: [4, 1, -4] }}
+      >
+        <Suspense fallback={null}>
+          <Scene labels={[label1Ref, label2Ref, label3Ref]} />
+        </Suspense>
+      </Canvas>
+      <div className="point" ref={label1Ref}>
+        <div className="label">1</div>
+        <div className="text">
+          Front and top screen with HUD aggregating terrain and battle
+          informations.
+        </div>
+      </div>
+      <div className="point" ref={label2Ref}>
+        <div className="label">2</div>
+        <div className="text">
+          Ventilation with air purifier and detection of environment toxicity.
+        </div>
+      </div>
+      <div className="point" ref={label3Ref}>
+        <div className="label">3</div>
+        <div className="text">
+          Cameras supporting night vision and heat vision with automatic
+          adjustment.
+        </div>
+      </div>
+    </Layout>
+  )
+}

@@ -33,17 +33,6 @@ export function Scene() {
   scene.scale.set(2, 2, 2)
   scene.rotation.y = Math.PI * 0.5
   three.scene.add(scene)
-  three.scene.traverse((child) => {
-    if (
-      child instanceof Mesh &&
-      child.material instanceof MeshStandardMaterial
-    ) {
-      child.material.envMapIntensity = 5
-      child.material.needsUpdate = true
-      child.castShadow = true
-      child.receiveShadow = true
-    }
-  })
 
   const directionalLightRef = useRef(null)
   useEffect(() => {

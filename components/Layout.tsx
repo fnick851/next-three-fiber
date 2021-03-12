@@ -7,6 +7,7 @@ import { useState } from "react"
 export function Layout({ children }) {
   const links = [
     { link: "/", name: "Home" },
+    { link: "/labels", name: "Labels" },
     { link: "/performance", name: "Performance" },
     { link: "/post-processing", name: "Post Processing" },
     { link: "/morphing-head", name: "Morphing Head" },

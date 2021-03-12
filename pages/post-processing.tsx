@@ -7,7 +7,7 @@ import { Leva } from "leva"
 import { PostEffects } from "../components/post-processing/PostEffects"
 import { Scene } from "../components/post-processing/Scene"
 
-export default function RealisticHelmet() {
+export default function PostProcessing() {
   return (
     <Layout>
       <Head>
