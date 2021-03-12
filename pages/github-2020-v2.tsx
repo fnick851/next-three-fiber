@@ -3,9 +3,8 @@ import { Canvas, useThree } from "react-three-fiber"
 import { Layout } from "../components/Layout"
 import { useControls, Leva } from "leva"
 import { Suspense } from "react"
-import { useGLTF } from "@react-three/drei"
+import { useGLTF, Loader } from "@react-three/drei"
 import { OrbitControls } from "@react-three/drei"
-import { LoadingScene } from "../components/LoadingScene"
 
 function Scene() {
   const three = useThree()
@@ -57,9 +56,10 @@ export default function Github2020V2() {
         <title>Github 2020 V2</title>
       </Head>
 
+      <Loader />
       <Leva oneLineLabels={true} />
       <Canvas className="bg-black" shadowMap={true}>
-        <Suspense fallback={<LoadingScene />}>
+        <Suspense fallback={null}>
           <Scene />
         </Suspense>
       </Canvas>

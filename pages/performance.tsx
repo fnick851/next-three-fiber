@@ -3,9 +3,8 @@ import { Canvas, useLoader } from "react-three-fiber"
 import { Layout } from "../components/Layout"
 import { OrbitControls } from "@react-three/drei"
 import { Suspense, useEffect, useRef } from "react"
-import { LoadingScene } from "../components/LoadingScene"
 import { DoubleSide, ShaderMaterial, TextureLoader } from "three"
-import { Stats } from "@react-three/drei"
+import { Stats, Loader } from "@react-three/drei"
 import { useControls, Leva } from "leva"
 
 function Scene() {
@@ -125,9 +124,10 @@ export default function Performance() {
         <title>Performance</title>
       </Head>
 
+      <Loader />
       <Leva oneLineLabels={true} />
       <Canvas className="bg-black" camera={{ position: [2, 2, 6] }}>
-        <Suspense fallback={<LoadingScene />}>
+        <Suspense fallback={null}>
           <Scene />
           <ambientLight intensity={0.1} />
           <OrbitControls />

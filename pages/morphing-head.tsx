@@ -1,7 +1,7 @@
 import Head from "next/head"
 import { Canvas, useFrame, useLoader, useThree } from "react-three-fiber"
 import { Layout } from "../components/Layout"
-import { OrbitControls, useGLTF } from "@react-three/drei"
+import { OrbitControls, useGLTF, Loader } from "@react-three/drei"
 import {
   ACESFilmicToneMapping,
   CubeTextureLoader,
@@ -14,7 +14,6 @@ import {
   TextureLoader,
 } from "three"
 import { Suspense, useEffect, useRef } from "react"
-import { LoadingScene } from "../components/LoadingScene"
 
 function Scene() {
   const three = useThree()
@@ -183,12 +182,13 @@ export default function MorphingHead() {
         <title>Morphing Head</title>
       </Head>
 
+      <Loader />
       <Canvas
         className="bg-black"
         shadowMap={true}
         camera={{ position: [10, 0, -10] }}
       >
-        <Suspense fallback={<LoadingScene />}>
+        <Suspense fallback={null}>
           <Scene />
           <OrbitControls />
         </Suspense>

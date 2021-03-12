@@ -1,7 +1,7 @@
 import Head from "next/head"
 import { Canvas, useThree } from "react-three-fiber"
 import { Layout } from "../components/Layout"
-import { OrbitControls, useGLTF } from "@react-three/drei"
+import { OrbitControls, useGLTF, Loader } from "@react-three/drei"
 import {
   ACESFilmicToneMapping,
   CineonToneMapping,
@@ -14,7 +14,6 @@ import {
   sRGBEncoding,
 } from "three"
 import { Suspense, useEffect, useRef } from "react"
-import { LoadingScene } from "../components/LoadingScene"
 import { useControls, Leva } from "leva"
 
 function Scene() {
@@ -150,13 +149,14 @@ export default function RealisticHelmet() {
         <title>Realistic Helmet</title>
       </Head>
 
+      <Loader />
       <Leva oneLineLabels={true} />
       <Canvas
         className="bg-black"
         camera={{ position: [4, 1, -4] }}
         shadowMap={true}
       >
-        <Suspense fallback={<LoadingScene />}>
+        <Suspense fallback={null}>
           <Scene />
           <ambientLight intensity={0.1} />
           <OrbitControls />

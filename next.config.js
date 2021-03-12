@@ -3,4 +3,13 @@ const withTM = require("next-transpile-modules")([
   "@react-three/drei",
 ])
 
-module.exports = withTM()
+module.exports = withTM({
+  webpack: (config) => {
+    config.module.rules.push({
+      test: /react-spring/,
+      sideEffects: true,
+    })
+
+    return config
+  },
+})

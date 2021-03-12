@@ -4,9 +4,8 @@ import { Layout } from "../components/Layout"
 import { useControls, Leva } from "leva"
 import { useFrame } from "react-three-fiber"
 import { Suspense, useRef } from "react"
-import { useGLTF } from "@react-three/drei"
+import { useGLTF, Loader } from "@react-three/drei"
 import { OrbitControls } from "@react-three/drei"
-import { LoadingScene } from "../components/LoadingScene"
 
 function Scene() {
   const gltf = useGLTF("/models/fnick851-github-2020.glb")
@@ -79,9 +78,10 @@ export default function Github2020() {
         <title>Github 2020</title>
       </Head>
 
+      <Loader />
       <Leva oneLineLabels={true} />
       <Canvas className="bg-black">
-        <Suspense fallback={<LoadingScene />}>
+        <Suspense fallback={null}>
           <Scene />
         </Suspense>
       </Canvas>
