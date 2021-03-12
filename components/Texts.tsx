@@ -9,7 +9,7 @@ export function Texts(props: {
     <mesh position={props.position}>
       <planeGeometry />
       <meshBasicMaterial transparent={true} opacity={0} />
-      <Html center style={{ color: "hotpink", width: 300 }}>
+      <Html center style={{ color: "hotpink", width: 350 }}>
         {props.children}
       </Html>
     </mesh>

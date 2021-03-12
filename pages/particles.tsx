@@ -9,7 +9,7 @@ import {
   TextureLoader,
 } from "three"
 import { Suspense } from "react"
-import { useControls } from "leva"
+import { useControls, Leva } from "leva"
 
 function Scene() {
   const { particle_style } = useControls({
@@ -89,6 +89,7 @@ export default function Particles() {
       </Head>
 
       <Loader />
+      <Leva oneLineLabels={true} />
       <Canvas className="bg-black">
         <Suspense fallback={null}>
           <Scene />

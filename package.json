@@ -6,9 +6,9 @@
     "up": "npx npm-check-updates -u"
   },
   "dependencies": {
-    "@react-three/cannon": "^0.6.0",
+    "@react-three/cannon": "^0.6.1",
     "@react-three/drei": "^3.11.0",
-    "@types/node": "^14.14.33",
+    "@types/node": "^14.14.34",
     "@types/react": "^17.0.3",
     "@types/three": "^0.126.0",
     "autoprefixer": "^10.2.5",

@@ -46,11 +46,15 @@ export default function Home() {
         <Texts position={[-1, 2, 0]}>
           <p>welcome :)</p>
           <br />
-          <p>click upper left corner to open menu.</p>
+          <p>
+            <strong>please click upper left corner to open menu.</strong>
+          </p>
           <br />
 
-          <p>drag and scroll to navigate,</p>
-          <p>sometimes it is clickable too.</p>
+          <p>drag with left mouse button to rotate,</p>
+          <p>drag with right mouse button to pan,</p>
+          <p>scroll to zoom,</p>
+          <p>sometimes the object is clickable too.</p>
         </Texts>
         <ClickableBox position={[-1, 0, 0]} />
         <ClickableBox position={[1, 0, 0]} />
