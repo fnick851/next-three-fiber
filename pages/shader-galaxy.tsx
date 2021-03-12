@@ -22,6 +22,7 @@ function Scene() {
     randomnessPower,
     insideColor,
     outsideColor,
+    starStyle,
   } = useControls({
     count: { value: 200000, step: 100, min: 100, max: 1000000 },
     radius: { value: 5, step: 0.01, min: 0.01, max: 20 },
@@ -30,6 +31,14 @@ function Scene() {
     randomnessPower: { value: 3, step: 0.001, min: 1, max: 10 },
     insideColor: "#ff6030",
     outsideColor: "#1b3984",
+    starStyle: {
+      value: 2,
+      options: {
+        disc: 0,
+        diffuse_point: 1,
+        light_point: 2,
+      },
+    },
   })
 
   const geometry = new BufferGeometry()
@@ -94,7 +103,7 @@ function Scene() {
       uSize: { value: 30 * gl.getPixelRatio() },
     },
     vertexShader,
-    fragmentShader,
+    fragmentShader: fragmentShader(starStyle),
   })
 
   useFrame((state) => {
