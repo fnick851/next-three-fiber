@@ -17,6 +17,7 @@ export function Layout({ children }) {
     { link: "/shader-flag", name: "Shader Flag" },
     { link: "/realistic-helmet", name: "Realistic Helmet" },
     { link: "/fox-model", name: "Fox Model" },
+    { link: "/burger-model", name: "Burger Model" },
     { link: "/simple-physics", name: "Simple Physics" },
     { link: "/raycaster", name: "Raycaster" },
     { link: "/galaxy", name: "Galaxy" },
