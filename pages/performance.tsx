@@ -63,7 +63,7 @@ function Scene() {
 
   const node = useRef(document.createElement("div"))
   useEffect(() => {
-    node.current.classList.add("stats", "fixed", "bottom-1", "right-1", "flex")
+    node.current.classList.add("fixed", "bottom-1", "right-1", "flex")
     document.body.appendChild(node.current)
 
     return () => {
@@ -73,9 +73,9 @@ function Scene() {
 
   return (
     <>
-      <Stats showPanel={0} parent={node} />
-      <Stats showPanel={1} parent={node} />
-      <Stats showPanel={2} parent={node} />
+      <Stats showPanel={0} parent={node} className="pos-unset" />
+      <Stats showPanel={1} parent={node} className="pos-unset" />
+      <Stats showPanel={2} parent={node} className="pos-unset" />
       {turn_on_standard_objects ? (
         <>
           <mesh castShadow receiveShadow position={[-5, 0, 0]}>

@@ -78,15 +78,15 @@ function Scene(props: { labels: MutableRefObject<any>[] }) {
       const intersects = raycaster.intersectObjects(scene.children, true)
 
       if (intersects.length === 0) {
-        point.element.classList.add("visible")
+        point.element.firstChild.classList.add("scale-100")
       } else {
         const intersectionDistance = intersects[0].distance
         const pointDistance = point.position.distanceTo(camera.position)
 
         if (intersectionDistance < pointDistance) {
-          point.element.classList.remove("visible")
+          point.element.firstChild.classList.remove("scale-100")
         } else {
-          point.element.classList.add("visible")
+          point.element.firstChild.classList.add("scale-100")
         }
       }
 
@@ -112,6 +112,23 @@ export default function Labels() {
   const label1Ref = useRef(null)
   const label2Ref = useRef(null)
   const label3Ref = useRef(null)
+  const labelsConfig = [
+    {
+      ref: label1Ref,
+      text:
+        "Front and top screen with HUD aggregating terrain and battle informations.",
+    },
+    {
+      ref: label2Ref,
+      text:
+        "Ventilation with air purifier and detection of environment toxicity.",
+    },
+    {
+      ref: label3Ref,
+      text:
+        "Cameras supporting night vision and heat vision with automatic adjustment.",
+    },
+  ]
 
   return (
     <Layout>
@@ -128,26 +145,16 @@ export default function Labels() {
           <Scene labels={[label1Ref, label2Ref, label3Ref]} />
         </Suspense>
       </Canvas>
-      <div className="point" ref={label1Ref}>
-        <div className="label">1</div>
-        <div className="text">
-          Front and top screen with HUD aggregating terrain and battle
-          informations.
+      {labelsConfig.map(({ ref, text }, index) => (
+        <div className="group absolute top-1/2 left-1/2" ref={ref}>
+          <div className="absolute -top-8 -left-8 w-10 h-10 rounded-50% bg-black bg-opacity-75 border-gray-400 border-2 text-white font-sans text-center leading-9 cursor-help transform scale-0 transition-transform delay-300">
+            {index}
+          </div>
+          <div className="group-hover:opacity-100 absolute top-10 -left-32 w-48 p-5 rounded bg-black bg-opacity-75 border-gray-400 border-2 text-white leading-5 font-sans text-sm opacity-0 transition-opacity delay-100 pointer-events-none">
+            {text}
+          </div>
         </div>
-      </div>
-      <div className="point" ref={label2Ref}>
-        <div className="label">2</div>
-        <div className="text">
-          Ventilation with air purifier and detection of environment toxicity.
-        </div>
-      </div>
-      <div className="point" ref={label3Ref}>
-        <div className="label">3</div>
-        <div className="text">
-          Cameras supporting night vision and heat vision with automatic
-          adjustment.
-        </div>
-      </div>
+      ))}
     </Layout>
   )
 }
