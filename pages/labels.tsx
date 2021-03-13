@@ -109,22 +109,19 @@ function Scene(props: { labels: MutableRefObject<any>[] }) {
 }
 
 export default function Labels() {
-  const label1Ref = useRef(null)
-  const label2Ref = useRef(null)
-  const label3Ref = useRef(null)
   const labelsConfig = [
     {
-      ref: label1Ref,
+      ref: useRef(null),
       text:
         "Front and top screen with HUD aggregating terrain and battle informations.",
     },
     {
-      ref: label2Ref,
+      ref: useRef(null),
       text:
         "Ventilation with air purifier and detection of environment toxicity.",
     },
     {
-      ref: label3Ref,
+      ref: useRef(null),
       text:
         "Cameras supporting night vision and heat vision with automatic adjustment.",
     },
@@ -142,11 +139,11 @@ export default function Labels() {
         camera={{ position: [4, 1, -4] }}
       >
         <Suspense fallback={null}>
-          <Scene labels={[label1Ref, label2Ref, label3Ref]} />
+          <Scene labels={labelsConfig.map((item) => item.ref)} />
         </Suspense>
       </Canvas>
       {labelsConfig.map(({ ref, text }, index) => (
-        <div className="group absolute top-1/2 left-1/2" ref={ref}>
+        <div className="group absolute top-1/2 left-1/2" ref={ref} key={index}>
           <div className="absolute -top-8 -left-8 w-10 h-10 rounded-50% bg-black bg-opacity-75 border-gray-400 border-2 text-white font-sans text-center leading-9 cursor-help transform scale-0 transition-transform delay-300">
             {index}
           </div>

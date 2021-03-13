@@ -73,9 +73,14 @@ function Scene() {
 
   return (
     <>
-      <Stats showPanel={0} parent={node} className="pos-unset" />
-      <Stats showPanel={1} parent={node} className="pos-unset" />
-      <Stats showPanel={2} parent={node} className="pos-unset" />
+      {[0, 1, 2].map((num, index) => (
+        <Stats
+          showPanel={num}
+          parent={node}
+          key={index}
+          className="pos-unset"
+        />
+      ))}
       {turn_on_standard_objects ? (
         <>
           <mesh castShadow receiveShadow position={[-5, 0, 0]}>
