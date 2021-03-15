@@ -75,10 +75,12 @@ function Box(props) {
   )
 }
 
-function Floor() {
+function Floor(props) {
+  const [ref] = usePlane(() => ({ rotation: [-Math.PI * 0.5, 0, 0], ...props }))
+
   return (
     <>
-      <mesh receiveShadow={true} rotation={[-Math.PI * 0.5, 0, 0]}>
+      <mesh ref={ref} receiveShadow={true}>
         <planeGeometry args={[10, 10]} />
         <meshStandardMaterial color={"#777777"} />
       </mesh>
