@@ -2,7 +2,7 @@ import Head from "next/head"
 import { Canvas } from "react-three-fiber"
 import { Layout } from "../components/Layout"
 import { OrbitControls } from "@react-three/drei"
-import { CubeTextureLoader, DoubleSide } from "three"
+import { CubeTextureLoader } from "three"
 import { Physics, usePlane, useBox, useSphere } from "@react-three/cannon"
 import { useState } from "react"
 
@@ -75,13 +75,18 @@ function Box(props) {
   )
 }
 
-function Floor(props) {
-  const [ref] = usePlane(() => ({ rotation: [-Math.PI * 0.5, 0, 0], ...props }))
+function Floor() {
   return (
-    <mesh ref={ref} receiveShadow={true}>
-      <planeGeometry args={[10, 10]} />
-      <meshStandardMaterial side={DoubleSide} color={"#777777"} />
-    </mesh>
+    <>
+      <mesh receiveShadow={true} rotation={[-Math.PI * 0.5, 0, 0]}>
+        <planeGeometry args={[10, 10]} />
+        <meshStandardMaterial color={"#777777"} />
+      </mesh>
+      <mesh position={[0, -0.01, 0]} rotation={[0.5 * Math.PI, 0, 0]}>
+        <planeGeometry args={[10, 10]} />
+        <meshPhongMaterial color={"#777777"} />
+      </mesh>
+    </>
   )
 }
 
