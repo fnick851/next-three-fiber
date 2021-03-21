@@ -51,10 +51,12 @@ export default function Home() {
           </p>
           <br />
 
-          <p>drag with left mouse button to rotate,</p>
-          <p>drag with right mouse button to pan,</p>
-          <p>scroll to zoom,</p>
-          <p>sometimes the object is clickable too.</p>
+          <div style={{ color: "#6395ed" }}>
+            <p>drag with left mouse button to rotate,</p>
+            <p>drag with right mouse button to pan,</p>
+            <p>drag with middle mouse button, or scroll, to zoom,</p>
+            <p>some objects are clickable too.</p>
+          </div>
         </Texts>
         <ClickableBox position={[-1, 0, 0]} />
         <ClickableBox position={[1, 0, 0]} />
