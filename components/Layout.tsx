@@ -3,10 +3,16 @@ import Link from "next/link"
 import Image from "next/image"
 import { useRouter } from "next/router"
 import { useState } from "react"
+import ExternalLinkIcon from "./ExternalLinkIcon"
 
 export function Layout({ children }) {
-  const links = [
-    { link: "/", name: "Home" },
+  const externalLinks = [
+    {
+      link: "https://fnick851.github.io/threejs-journey-baked-scene/",
+      name: "Baked Scene",
+    },
+  ]
+  const internalLinks = [
     { link: "/labels", name: "Labels" },
     { link: "/performance", name: "Performance" },
     { link: "/post-processing", name: "Post Processing" },
@@ -39,14 +45,25 @@ export function Layout({ children }) {
   ]
 
   const router = useRouter()
-  const menuItems = links.map((d, i) => (
-    <Link href={d.link} key={i}>
+  const externalMenuItems = externalLinks.map(({ link, name }, i) => (
+    <a
+      className={`group flex items-center px-3 py-2 text-sm font-medium text-gray-600 rounded-md hover:text-gray-900 hover:bg-gray-50`}
+      href={link}
+      key={i}
+      target="_blank"
+    >
+      <span className="truncate">{name}</span>
+      <ExternalLinkIcon />
+    </a>
+  ))
+  const internalMenuItems = internalLinks.map(({ link, name }, i) => (
+    <Link href={link} key={i}>
       <a
         className={`group flex items-center px-3 py-2 text-sm font-medium text-gray-600 rounded-md hover:text-gray-900 hover:bg-gray-50 ${
-          router.pathname == d.link ? "text-gray-900 bg-gray-50" : null
+          router.pathname == link ? "text-gray-900 bg-gray-50" : null
         }`}
       >
-        <span className="truncate">{d.name}</span>
+        <span className="truncate">{name}</span>
       </a>
     </Link>
   ))
@@ -109,7 +126,20 @@ export function Layout({ children }) {
                     role="group"
                     aria-labelledby="projects-headline"
                   >
-                    {menuItems}
+                    <Link href="/">
+                      <a
+                        className={`group flex items-center px-3 py-2 text-sm font-medium text-gray-600 rounded-md hover:text-gray-900 hover:bg-gray-50 ${
+                          router.pathname == "/"
+                            ? "text-gray-900 bg-gray-50"
+                            : null
+                        }`}
+                      >
+                        <span className="truncate">Home</span>
+                      </a>
+                    </Link>
+                    {externalMenuItems}
+                    <hr />
+                    {internalMenuItems}
                   </div>
                 </div>
               </nav>
