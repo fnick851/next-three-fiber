@@ -138,7 +138,6 @@ export function Layout({ children }) {
                       </a>
                     </Link>
                     {externalMenuItems}
-                    <hr />
                     {internalMenuItems}
                   </div>
                 </div>
