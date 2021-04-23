@@ -8,6 +8,10 @@ import ExternalLinkIcon from "./ExternalLinkIcon"
 export function Layout({ children }) {
   const externalLinks = [
     {
+      link: "https://fnick851.github.io/react-chart-rewrite/",
+      name: "NAEP Internship Program Growth",
+    },
+    {
       link: "https://fnick851.github.io/threejs-journey-baked-scene/",
       name: "Baked Scene",
     },
