@@ -107,7 +107,7 @@ export function Layout({ children }) {
         <div
           className={
             (menuOpen ? "" : "hidden") +
-            " fixed flex flex-col w-64 max-h-screen z-17000000 h-full"
+            " fixed flex flex-col max-h-screen z-17000000 h-full"
           }
         >
           <div className="flex flex-col flex-grow border-r border-gray-200 pt-5 pb-4 bg-white overflow-y-auto">
