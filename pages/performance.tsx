@@ -126,7 +126,7 @@ export default function Performance() {
   return (
     <Layout>
       <Head>
-        <title>Performance</title>
+        <title>Performance - three.js journey r3f</title>
       </Head>
 
       <Loader />

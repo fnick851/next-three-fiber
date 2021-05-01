@@ -124,7 +124,7 @@ export default function Lights() {
   return (
     <Layout>
       <Head>
-        <title>Lights</title>
+        <title>Lights - three.js journey r3f</title>
       </Head>
 
       <Canvas className="bg-black">

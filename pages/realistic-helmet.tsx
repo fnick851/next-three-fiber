@@ -146,7 +146,7 @@ export default function RealisticHelmet() {
   return (
     <Layout>
       <Head>
-        <title>Realistic Helmet</title>
+        <title>Realistic Helmet - three.js journey r3f</title>
       </Head>
 
       <Loader />

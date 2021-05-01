@@ -13,7 +13,7 @@ export default function FullScreen() {
   return (
     <Layout>
       <Head>
-        <title>Full Screen</title>
+        <title>Full Screen - three.js journey r3f</title>
       </Head>
 
       <div className="h-full" ref={canvas}>

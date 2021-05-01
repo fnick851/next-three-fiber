@@ -99,7 +99,7 @@ export default function ThreeDText() {
   return (
     <Layout>
       <Head>
-        <title>3D Text</title>
+        <title>3D Text - three.js journey r3f</title>
       </Head>
 
       <Loader />

@@ -7,7 +7,7 @@ export default function Basic() {
   return (
     <Layout>
       <Head>
-        <title>Basic</title>
+        <title>Basic - three.js journey r3f</title>
       </Head>
 
       <Canvas className="bg-black">

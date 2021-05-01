@@ -118,7 +118,7 @@ export default function ShaderGalaxy() {
   return (
     <Layout>
       <Head>
-        <title>Shader Galaxy</title>
+        <title>Shader Galaxy - three.js journey r3f</title>
       </Head>
 
       <Leva oneLineLabels={true} />

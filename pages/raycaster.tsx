@@ -65,7 +65,7 @@ export default function Raycaster() {
   return (
     <Layout>
       <Head>
-        <title>Raycaster</title>
+        <title>Raycaster - three.js journey r3f</title>
       </Head>
 
       <Canvas className="bg-black">

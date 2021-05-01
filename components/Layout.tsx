@@ -13,44 +13,54 @@ export function Layout({ children }) {
     },
     {
       link: "https://fnick851.github.io/threejs-journey-baked-scene/",
-      name: "Baked Scene",
+      name: "three.js journey r3f - Baked Scene",
     },
   ]
   const internalLinks = [
-    { link: "/labels", name: "Labels" },
-    { link: "/performance", name: "Performance" },
-    { link: "/post-processing", name: "Post Processing" },
-    { link: "/morphing-head", name: "Morphing Head" },
-    { link: "/shader-galaxy", name: "Shader Galaxy" },
-    { link: "/shader-water", name: "Shader Water" },
-    { link: "/shader-patterns", name: "Shader Patterns" },
-    { link: "/shader-flag", name: "Shader Flag" },
-    { link: "/realistic-helmet", name: "Realistic Helmet" },
-    { link: "/fox-model", name: "Fox Model" },
-    { link: "/burger-model", name: "Burger Model" },
-    { link: "/simple-physics", name: "Simple Physics" },
-    { link: "/raycaster", name: "Raycaster" },
-    { link: "/galaxy", name: "Galaxy" },
-    { link: "/particles", name: "Particles" },
-    { link: "/ghost-house", name: "Ghost House" },
-    { link: "/shadows", name: "Shadows" },
-    { link: "/lights", name: "Lights" },
+    { link: "/labels", name: "three.js journey r3f - Labels" },
+    { link: "/performance", name: "three.js journey r3f - Performance" },
+    {
+      link: "/post-processing",
+      name: "three.js journey r3f - Post Processing",
+    },
+    { link: "/morphing-head", name: "three.js journey r3f - Morphing Head" },
+    { link: "/shader-galaxy", name: "three.js journey r3f - Shader Galaxy" },
+    { link: "/shader-water", name: "three.js journey r3f - Shader Water" },
+    {
+      link: "/shader-patterns",
+      name: "three.js journey r3f - Shader Patterns",
+    },
+    { link: "/shader-flag", name: "three.js journey r3f - Shader Flag" },
+    {
+      link: "/realistic-helmet",
+      name: "three.js journey r3f - Realistic Helmet",
+    },
+    { link: "/fox-model", name: "three.js journey r3f - Fox Model" },
+    { link: "/burger-model", name: "three.js journey r3f - Burger Model" },
+    { link: "/simple-physics", name: "three.js journey r3f - Simple Physics" },
+    { link: "/raycaster", name: "three.js journey r3f - Raycaster" },
+    { link: "/galaxy", name: "three.js journey r3f - Galaxy" },
+    { link: "/particles", name: "three.js journey r3f - Particles" },
+    { link: "/ghost-house", name: "three.js journey r3f - Ghost House" },
+    { link: "/shadows", name: "three.js journey r3f - Shadows" },
+    { link: "/lights", name: "three.js journey r3f - Lights" },
     { link: "/github-2020-v2", name: "Github 2020 V2" },
     { link: "/github-2020", name: "Github 2020" },
-    { link: "/3d-text", name: "3D Text" },
-    { link: "/materials", name: "Materials" },
-    { link: "/textures", name: "Textures" },
+    { link: "/3d-text", name: "three.js journey r3f - 3D Text" },
+    { link: "/materials", name: "three.js journey r3f - Materials" },
+    { link: "/textures", name: "three.js journey r3f - Textures" },
     { link: "/leva", name: "Leva" },
-    { link: "/geometry", name: "Geometry" },
-    { link: "/full-screen", name: "Full Screen" },
-    { link: "/animation", name: "Animation" },
-    { link: "/transform", name: "Transform" },
-    { link: "/basic", name: "Basic" },
+    { link: "/geometry", name: "three.js journey r3f - Geometry" },
+    { link: "/full-screen", name: "three.js journey r3f - Full Screen" },
+    { link: "/animation", name: "three.js journey r3f - Animation" },
+    { link: "/transform", name: "three.js journey r3f - Transform" },
+    { link: "/basic", name: "three.js journey r3f - Basic" },
   ]
 
   const router = useRouter()
   const externalMenuItems = externalLinks.map(({ link, name }, i) => (
     <a
+      title={name}
       className={`group flex items-center px-3 py-2 text-sm font-medium text-gray-600 rounded-md hover:text-gray-900 hover:bg-gray-50`}
       href={link}
       key={i}
@@ -63,6 +73,7 @@ export function Layout({ children }) {
   const internalMenuItems = internalLinks.map(({ link, name }, i) => (
     <Link href={link} key={i}>
       <a
+        title={name}
         className={`group flex items-center px-3 py-2 text-sm font-medium text-gray-600 rounded-md hover:text-gray-900 hover:bg-gray-50 ${
           router.pathname == link ? "text-gray-900 bg-gray-50" : null
         }`}
@@ -132,6 +143,7 @@ export function Layout({ children }) {
                   >
                     <Link href="/">
                       <a
+                        title="Home"
                         className={`group flex items-center px-3 py-2 text-sm font-medium text-gray-600 rounded-md hover:text-gray-900 hover:bg-gray-50 ${
                           router.pathname == "/"
                             ? "text-gray-900 bg-gray-50"

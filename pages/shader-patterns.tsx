@@ -28,7 +28,7 @@ export default function ShaderPatterns() {
   return (
     <Layout>
       <Head>
-        <title>Shader Patterns</title>
+        <title>Shader Patterns - three.js journey r3f</title>
       </Head>
 
       <Canvas className="bg-black">

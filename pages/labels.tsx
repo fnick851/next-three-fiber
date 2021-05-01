@@ -130,7 +130,7 @@ export default function Labels() {
   return (
     <Layout>
       <Head>
-        <title>Labels</title>
+        <title>Labels - three.js journey r3f</title>
       </Head>
 
       <Canvas

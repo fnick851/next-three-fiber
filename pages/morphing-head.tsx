@@ -179,7 +179,7 @@ export default function MorphingHead() {
   return (
     <Layout>
       <Head>
-        <title>Morphing Head</title>
+        <title>Morphing Head - three.js journey r3f</title>
       </Head>
 
       <Loader />

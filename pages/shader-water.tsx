@@ -86,7 +86,7 @@ export default function ShaderWater() {
   return (
     <Layout>
       <Head>
-        <title>Shader Water</title>
+        <title>Shader Water - three.js journey r3f</title>
       </Head>
 
       <Leva oneLineLabels={true} />

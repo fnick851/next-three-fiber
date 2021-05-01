@@ -140,7 +140,7 @@ export default function Shadows() {
   return (
     <Layout>
       <Head>
-        <title>Shadows</title>
+        <title>Shadows - three.js journey r3f</title>
       </Head>
 
       <Loader />
