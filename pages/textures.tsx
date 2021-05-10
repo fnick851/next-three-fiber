@@ -37,7 +37,7 @@ export default function Textures() {
   return (
     <Layout>
       <Head>
-        <title>Textures - three.js journey r3f</title>
+        <title>Textures - Three.js Journey R3F</title>
       </Head>
 
       <Loader />

@@ -117,7 +117,7 @@ export default function SimplePhysics() {
   return (
     <Layout>
       <Head>
-        <title>Simple Physics - three.js journey r3f</title>
+        <title>Simple Physics - Three.js Journey R3F</title>
       </Head>
 
       <Canvas

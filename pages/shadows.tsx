@@ -7,15 +7,12 @@ import { CameraHelper, DoubleSide, SpotLightHelper, TextureLoader } from "three"
 import { Suspense, useEffect, useRef } from "react"
 
 function Scene() {
-  const {
-    ambient_intensity,
-    directional_intensity,
-    directional_position,
-  } = useControls({
-    ambient_intensity: 0.1,
-    directional_intensity: 0.1,
-    directional_position: [3, 2, 1],
-  })
+  const { ambient_intensity, directional_intensity, directional_position } =
+    useControls({
+      ambient_intensity: 0.1,
+      directional_intensity: 0.1,
+      directional_position: [3, 2, 1],
+    })
 
   const simpleShadow = useLoader(
     TextureLoader,
@@ -140,7 +137,7 @@ export default function Shadows() {
   return (
     <Layout>
       <Head>
-        <title>Shadows - three.js journey r3f</title>
+        <title>Shadows - Three.js Journey R3F</title>
       </Head>
 
       <Loader />

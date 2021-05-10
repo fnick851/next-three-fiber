@@ -88,7 +88,7 @@ export default function Materials() {
   return (
     <Layout>
       <Head>
-        <title>Materials - three.js journey r3f</title>
+        <title>Materials - Three.js Journey R3F</title>
       </Head>
 
       <Canvas className="bg-black">

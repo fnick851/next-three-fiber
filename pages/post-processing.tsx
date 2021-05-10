@@ -11,7 +11,7 @@ export default function PostProcessing() {
   return (
     <Layout>
       <Head>
-        <title>Post Processing - three.js journey r3f</title>
+        <title>Post Processing - Three.js Journey R3F</title>
       </Head>
 
       <Loader />

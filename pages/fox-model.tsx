@@ -52,7 +52,7 @@ export default function FoxModel() {
   return (
     <Layout>
       <Head>
-        <title>Fox Model - three.js journey r3f</title>
+        <title>Fox Model - Three.js Journey R3F</title>
       </Head>
 
       <Loader />

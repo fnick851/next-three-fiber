@@ -34,7 +34,7 @@ export default function GhostHouse() {
   return (
     <Layout>
       <Head>
-        <title>Ghost House - three.js journey r3f</title>
+        <title>Ghost House - Three.js Journey R3F</title>
       </Head>
 
       <Loader />

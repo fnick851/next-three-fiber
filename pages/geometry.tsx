@@ -35,7 +35,7 @@ export default function Geometry() {
   return (
     <Layout>
       <Head>
-        <title>Geometry - three.js journey r3f</title>
+        <title>Geometry - Three.js Journey R3F</title>
       </Head>
 
       <Canvas className="bg-black">

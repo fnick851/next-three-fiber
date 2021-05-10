@@ -8,15 +8,12 @@ import { Stats, Loader } from "@react-three/drei"
 import { useControls, Leva } from "leva"
 
 function Scene() {
-  const {
-    turn_on_shader_object,
-    turn_on_standard_objects,
-    turn_on_spotlight,
-  } = useControls({
-    turn_on_shader_object: true,
-    turn_on_standard_objects: true,
-    turn_on_spotlight: true,
-  })
+  const { turn_on_shader_object, turn_on_standard_objects, turn_on_spotlight } =
+    useControls({
+      turn_on_shader_object: true,
+      turn_on_standard_objects: true,
+      turn_on_spotlight: true,
+    })
   const displacementTexture = useLoader(
     TextureLoader,
     "/textures/displacementMap.png"
@@ -126,7 +123,7 @@ export default function Performance() {
   return (
     <Layout>
       <Head>
-        <title>Performance - three.js journey r3f</title>
+        <title>Performance - Three.js Journey R3F</title>
       </Head>
 
       <Loader />

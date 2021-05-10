@@ -112,25 +112,22 @@ export default function Labels() {
   const labelsConfig = [
     {
       ref: useRef(null),
-      text:
-        "Front and top screen with HUD aggregating terrain and battle informations.",
+      text: "Front and top screen with HUD aggregating terrain and battle informations.",
     },
     {
       ref: useRef(null),
-      text:
-        "Ventilation with air purifier and detection of environment toxicity.",
+      text: "Ventilation with air purifier and detection of environment toxicity.",
     },
     {
       ref: useRef(null),
-      text:
-        "Cameras supporting night vision and heat vision with automatic adjustment.",
+      text: "Cameras supporting night vision and heat vision with automatic adjustment.",
     },
   ]
 
   return (
     <Layout>
       <Head>
-        <title>Labels - three.js journey r3f</title>
+        <title>Labels - Three.js Journey R3F</title>
       </Head>
 
       <Canvas
