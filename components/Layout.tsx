@@ -8,6 +8,10 @@ import ExternalLinkIcon from "./ExternalLinkIcon"
 export function Layout({ children }) {
   const externalLinks = [
     {
+      link: "https://fnick851.github.io/r3f-saber-model/",
+      name: "R3F Deep Dive - Alter Saber",
+    },
+    {
       link: "https://fnick851.github.io/r3f-ui-events/",
       name: "R3F Deep Dive - UI Events",
     },
