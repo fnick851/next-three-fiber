@@ -21,7 +21,7 @@ export default function BurgerModel() {
   return (
     <Layout>
       <Head>
-        <title>Burger Model - Three.js Journey R3F</title>
+        <title>Burger Model - Three.js Journey to R3F</title>
       </Head>
 
       <Loader />

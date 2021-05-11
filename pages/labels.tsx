@@ -127,7 +127,7 @@ export default function Labels() {
   return (
     <Layout>
       <Head>
-        <title>Labels - Three.js Journey R3F</title>
+        <title>Labels - Three.js Journey to R3F</title>
       </Head>
 
       <Canvas

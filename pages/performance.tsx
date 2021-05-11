@@ -123,7 +123,7 @@ export default function Performance() {
   return (
     <Layout>
       <Head>
-        <title>Performance - Three.js Journey R3F</title>
+        <title>Performance - Three.js Journey to R3F</title>
       </Head>
 
       <Loader />

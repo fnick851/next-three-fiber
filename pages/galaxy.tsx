@@ -136,7 +136,7 @@ export default function Galaxy() {
   return (
     <Layout>
       <Head>
-        <title>Galaxy - Three.js Journey R3F</title>
+        <title>Galaxy - Three.js Journey to R3F</title>
       </Head>
 
       <Leva oneLineLabels={true} />

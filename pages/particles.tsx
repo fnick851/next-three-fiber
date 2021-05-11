@@ -85,7 +85,7 @@ export default function Particles() {
   return (
     <Layout>
       <Head>
-        <title>Particles - Three.js Journey R3F</title>
+        <title>Particles - Three.js Journey to R3F</title>
       </Head>
 
       <Loader />

@@ -16,7 +16,7 @@ export default function Transform() {
   return (
     <Layout>
       <Head>
-        <title>Transform - Three.js Journey R3F</title>
+        <title>Transform - Three.js Journey to R3F</title>
       </Head>
 
       <Canvas className="bg-black">

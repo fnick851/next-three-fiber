@@ -23,7 +23,7 @@ export default function Animation() {
   return (
     <Layout>
       <Head>
-        <title>Animation - Three.js Journey R3F</title>
+        <title>Animation - Three.js Journey to R3F</title>
       </Head>
 
       <Canvas className="bg-black">

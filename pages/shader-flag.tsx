@@ -97,7 +97,7 @@ export default function ShaderFlag() {
   return (
     <Layout>
       <Head>
-        <title>Shader Flag - Three.js Journey R3F</title>
+        <title>Shader Flag - Three.js Journey to R3F</title>
       </Head>
 
       <Loader />
