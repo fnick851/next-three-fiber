@@ -8,6 +8,10 @@ import ExternalLinkIcon from "./ExternalLinkIcon"
 export function Layout({ children }) {
   const externalLinks = [
     {
+      link: "https://fnick851.github.io/fogs/",
+      name: "Fogs",
+    },
+    {
       link: "https://fnick851.github.io/magic-cube/",
       name: "Magic Cube",
     },
