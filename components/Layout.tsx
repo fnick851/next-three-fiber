@@ -8,6 +8,10 @@ import ExternalLinkIcon from "./ExternalLinkIcon"
 export function Layout({ children }) {
   const externalLinks = [
     {
+      link: "https://fnick851.github.io/3d-bubble-bg/",
+      name: "Bubbles",
+    },
+    {
       link: "https://fnick851.github.io/bananas-screen/",
       name: "Bananas Screen",
     },
