@@ -8,6 +8,14 @@ import ExternalLinkIcon from "./ExternalLinkIcon"
 export function Layout({ children }) {
   const externalLinks = [
     {
+      link: "https://fnick851.github.io/bananas-screen/",
+      name: "Bananas Screen",
+    },
+    {
+      link: "https://fnick851.github.io/scrolly-framer-motion/",
+      name: "Page Scroll Animation Effect",
+    },
+    {
       link: "https://fnick851.github.io/fogs/",
       name: "Fogs",
     },
