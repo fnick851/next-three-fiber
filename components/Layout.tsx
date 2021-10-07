@@ -8,6 +8,10 @@ import ExternalLinkIcon from "./ExternalLinkIcon"
 export function Layout({ children }) {
   const externalLinks = [
     {
+      link: "https://fnick851.github.io/bounded-ball/",
+      name: "Bouncy Ball",
+    },
+    {
       link: "https://fnick851.github.io/bananas-screen/",
       name: "Bananas Screen",
     },
